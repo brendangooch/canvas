@@ -5,7 +5,7 @@
     "moduleResolution": "NodeNext", // set to "bundler" for webpack projects
     "target": "ES6",
     "rootDir": "./src",
-    "outDir": "build",
+    "outDir": "build/js",
     "allowUnreachableCode": false,
     "exactOptionalPropertyTypes": true,
     "noFallthroughCasesInSwitch": true,
