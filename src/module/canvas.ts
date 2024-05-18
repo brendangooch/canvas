@@ -34,6 +34,8 @@ export default class Canvas {
         };
     }
 
+    // functionality
+
     // test that a canvas with id = canvas exists in index.html
     private verifyElementExists(): void {
         if (document.getElementById(Canvas.HTML_ID) === null) {
