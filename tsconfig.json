@@ -1,3 +1,31 @@
 {
-  "compilerOptions": {}
+  "compilerOptions": {
+    "strict": true,
+    "module": "NodeNext", // set to "preserve" for webpack projects
+    "moduleResolution": "NodeNext", // set to "bundler" for webpack projects
+    "target": "ES6",
+    "rootDir": "./src",
+    "outDir": "build",
+    "allowUnreachableCode": false,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowArbitraryExtensions": true,
+    "resolveJsonModule": true,
+    "newLine": "lf", // CRLF on windows
+    "noEmit": false, // true for webpack?
+    "noEmitOnError": true,
+    "removeComments": true,
+    "sourceMap": false, // set to true to emit sourcemps
+    "allowJs": false, // set to true if importing js lib from npm
+    "checkJs": false, // set to true if importing js lib from npm
+    "allowSyntheticDefaultImports": true,
+    "noErrorTruncation": false
+  },
+  "include": [
+    "src/**/*"
+  ]
 }
