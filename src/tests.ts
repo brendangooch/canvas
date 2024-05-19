@@ -7,9 +7,9 @@ import Canvas from "./module/canvas.js";
 // all tests - comment/uncomment as required
 // @ts-ignore
 export default function (canvas: Canvas, images: HTMLImageElement[]): void {
-    // testGetWidth(canvas);
-    // testGetHeight(canvas);
-    // testGetCenter(canvas);
+    testGetWidth(canvas);
+    testGetHeight(canvas);
+    testGetCenter(canvas);
     // testClear(canvas);
     // testSave(canvas);
     // testReset(canvas);
@@ -37,14 +37,18 @@ export default function (canvas: Canvas, images: HTMLImageElement[]): void {
 }
 
 
-// @ts-ignore
-function testGetWidth(canvas: Canvas): void { }
+function testGetWidth(canvas: Canvas): void {
+    console.assert(Canvas.WIDTH === canvas.width, 'canvas.width is incorrect');
+}
 
-// @ts-ignore
-function testGetHeight(canvas: Canvas): void { }
+function testGetHeight(canvas: Canvas): void {
+    console.assert(Canvas.HEIGHT === canvas.height, 'canvas.height is incorrect');
+}
 
-// @ts-ignore
-function testGetCenter(canvas: Canvas): void { }
+function testGetCenter(canvas: Canvas): void {
+    console.assert(Canvas.WIDTH / 2 === canvas.center.x, 'canvas.center.x is incorrect');
+    console.assert(Canvas.HEIGHT / 2 === canvas.center.y, 'canvas.center.y is incorrect');
+}
 
 // @ts-ignore
 function testClear(canvas: Canvas): void { }
