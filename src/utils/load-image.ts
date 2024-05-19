@@ -1,5 +1,5 @@
 /**
- * a couple of helpful loaders
+ * load an image into the app
  */
 
 export function loadImage(src: string): Promise<HTMLImageElement> {
@@ -9,5 +9,3 @@ export function loadImage(src: string): Promise<HTMLImageElement> {
         img.src = src;
     });
 }
-
-// export function loadFont()
