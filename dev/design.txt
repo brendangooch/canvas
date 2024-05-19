@@ -1,0 +1,210 @@
+Canvas module design
+
+class Canvas {
+	
+	get width(): number
+	get height(): number
+	get center(): number
+	
+	get path(): CanvasPath
+	get text(): CanvasText
+	get color(): CanvasColor
+	get image(): CanvaImage
+	get filter(): CanvasFilter
+	get shadow(): CanvasShadow
+	get line(): CanvasLine
+	get imageData(): CanvasImageData
+	get composite(): CanvasCompositeOperation
+	get transform(): CanvasTransform
+	
+	//getContextAttributes()
+	get attributes()
+	
+	//isContextLost()
+	get isContextLost()
+
+	// imageSmoothingEnabled
+	// imageSmoothingQuality
+	enableSmoothing(quality: string)
+	disableSmoothing()
+	
+	// clearRect()
+	clear()
+	
+	// save()
+	// restore()
+	save(fn)
+		
+	// reset()
+	reset()
+	
+	// globalAlpha
+	setAlpha(alpha: number)
+	
+	// scale()
+	scale(x,y)
+	
+	// translate()
+	translate(x,y)
+	
+	// rotate()
+	rotate(radians)
+	
+	// beginPath()
+	// fill()
+	fill(fn)
+
+	// beginPath()
+	// stroke()	
+	stroke(fn)
+	
+}
+
+
+abstract class CanvasComponent {
+	constructor(ctx)
+}
+
+
+class CanvasText extends CanvasComponent {
+	// direction
+	rtl()
+	ltr()
+	inherit()
+
+	// fillText()
+	fill()
+	
+	// strokeText()
+	stroke()
+	
+	// textAlign
+	// textBaseline
+	// textRendering
+	// wordSpacing
+	// letterSpacing
+	
+	// (CanvasFont)
+	// font
+	// fontKerning
+	// fontStretch
+	// fontVariantCaps	
+	
+	// measureText()
+
+}
+
+
+class CanvasColor extends CanvasComponent {
+	// fillStyle
+	// strokeStyle
+	fill(color: string)
+	stroke(color: string)
+	
+	
+	// createConicGradient()
+	// createLinearGradient()
+	// createRadialGradient()
+	// createPattern()
+
+}
+
+
+class CanvasImage extends CanvasComponent {
+	// drawImage()
+	
+}
+
+
+class CanvasShadow extends CanvasComponent {
+	// shadowBlur
+	// shadowColor
+	// shadowOffsetX
+	// shadowOffsetY
+	
+}
+
+
+class CanvasFilter extends CanvasComponent {
+	// filter
+
+}
+
+
+class CanvasLine extends CanvasComponent {
+	// lineCap
+	// lineDashOffset
+	// lineJoin
+	// lineWidth
+	// miterLimit
+	// setLineDash()
+	// getLineDash()
+		
+}
+
+
+class CanvasImageData extends CanvasComponent {
+	// createImageData()
+	// getImageData()
+	// putImageData()
+	
+}
+
+
+class CanvasPath extends CanvasComponent {
+	// beginPath()
+	// lineTo()
+	// moveTo()
+	// arcTo()
+	// bezierCurveTo()
+	// quadraticCurveTo()
+	// arc()
+	// rect() / roundRect()
+	// clip()
+	// closePath()
+	// ellipse()
+	// isPointInPath()
+	// isPointInStroke()
+	
+}
+
+
+class CanvasCompositeOperation extends CanvasComponent {
+	// globalCompositeOperation
+		// "source-over"
+		// "source-in"
+		// "source-out"
+		// "source-atop"
+		// "destination-over"
+		// "destination-in"
+		// "destination-out"
+		// "destination-atop"
+		// "lighter"
+		// "copy"
+		// "xor"
+		// "multiply"
+		// "screen"
+		// "overlay"
+		// "darken"
+		// "lighten"
+		// "color-dodge"
+		// "color-burn"
+		// "hard-light"
+		// "soft-light"
+		// "difference"
+		// "exclusion"
+		// "hue"
+		// "saturation"
+		// "color"
+		// "luminosity"
+	
+}
+
+
+class CanvasTransform extends CanvasComponent {
+	// transform()
+	// setTransform()
+	// getTransform()
+	// resetTransform()
+	
+}

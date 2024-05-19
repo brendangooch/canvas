@@ -1,0 +1,3 @@
+	
+carefully set some default values where appropriate/required
+experiment with alpha false on attributes when creating context - does it affect the output?

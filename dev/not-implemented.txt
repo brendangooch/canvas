@@ -1,0 +1,8 @@
+
+
+scrollPathIntoView()Experimental
+    experimental so left out for now
+
+drawFocusIfNeeded()
+    should never need this functionality
+    google and experiment with it at a later date

@@ -1,0 +1,17 @@
+
+
+order of implementation:
+    canvas
+    paths
+    color
+    image
+    line
+    font
+    text
+    shadow
+    filter*
+    composite*
+    transform*
+    imageData*
+    
+* implement later on
