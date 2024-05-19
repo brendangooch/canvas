@@ -3,7 +3,7 @@
  */
 
 import Canvas from "./module/canvas.js";
-import runTests from './tests.js';
+import testAll from './tests/test-all.js';
 
 (async () => {
 
@@ -14,17 +14,8 @@ import runTests from './tests.js';
         Canvas.HEIGHT = window.innerHeight;
 
         try {
-
             const canvas = new Canvas();
-
-            // load images
-            const images: HTMLImageElement[] = [];
-
-            // load fonts
-
-            // run tests
-            runTests(canvas, images);
-
+            testAll(canvas);
 
         } catch (error) {
             console.error(error);
