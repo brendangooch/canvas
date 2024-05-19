@@ -135,12 +135,14 @@ export default class Canvas {
         this.ctx.reset();
     }
 
-    public setAlpha(alpha: number): void {
+    public setOpacity(alpha: number): void {
         this.ctx.globalAlpha = alpha;
     }
 
-    public scale(x: number, y: number): void {
-        this.ctx.scale(x, y);
+    // accepts either standard x,y OR x can represent both scales
+    public scale(xOrBoth: number, y: number | null = null): void {
+        if (typeof xOrBoth === "number" && typeof y === "number") this.ctx.scale(xOrBoth, y);
+        else this.ctx.scale(xOrBoth, xOrBoth);
     }
 
     // translate by: normal (x, y), percent (x < 1, y < 1), option(~'bottom-left')

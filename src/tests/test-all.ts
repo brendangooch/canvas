@@ -44,17 +44,23 @@ import testTransform from "./test-transform.js";
 // all tests - comment/uncomment as required
 // @ts-ignore
 export default function (canvas: Canvas): void {
-    // testPath(canvas);
-    // testCanvas(canvas);
-    // testColor(canvas);
-    // testComposite(canvas);
-    // testFilter(canvas);
-    // testFont(canvas);
-    // testImageData(canvas);
-    // testImage(canvas);
+
+    // (tested)
+    // testPath(canvas);        // WORKING
+    // testCanvas(canvas);      // WORKING
+
+    // (to test)
     // testLine(canvas);
-    // testShadow(canvas);
+    // testColor(canvas);
+    // testImage(canvas);
+    // testComposite(canvas);
+    // testFont(canvas);
     // testText(canvas);
+    // testShadow(canvas);
+
+    // (test functionality as needed)
+    // testFilter(canvas);
+    // testImageData(canvas);
     // testTransform(canvas);
 
 }
