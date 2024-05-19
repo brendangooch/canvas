@@ -12,6 +12,7 @@ import CanvasPath from "./canvas-path.js";
 import CanvasShadow from "./canvas-shadow.js";
 import CanvasText from "./canvas-text.js";
 import CanvasTransform from "./canvas-transform.js";
+import { tTranslateOption } from "./custom-types.js";
 
 type tImageSmoothingQuality = 'low' | 'medium' | 'high';
 
@@ -48,7 +49,7 @@ export default class Canvas {
         this._imageData = new CanvasImageData(this.ctx);
         this._composite = new CanvasCompositeOperation(this.ctx);
         this._transform = new CanvasTransform(this.ctx);
-        this.setDimensions();
+        this.setCanvasDimensions();
     }
 
     public get width(): number {
@@ -142,8 +143,13 @@ export default class Canvas {
         this.ctx.scale(x, y);
     }
 
-    public translate(x: number, y: number): void {
-        this.ctx.translate(x, y);
+    // translate by: normal (x, y), percent (x < 1, y < 1), option(~'bottom-left')
+    public translate(xOrTranslationOption: number | tTranslateOption, y: number | null = null): void {
+        if (typeof xOrTranslationOption === 'number' && typeof y === 'number') {
+            if (xOrTranslationOption < 1 && y < 1) this.translatePercent(xOrTranslationOption, y);
+            else this.translateNormal(xOrTranslationOption, y);
+        }
+        else this.translateByTranslationOption(<tTranslateOption>xOrTranslationOption);
     }
 
     public rotate(radians: number): void {
@@ -158,9 +164,58 @@ export default class Canvas {
     }
 
     // setDimensions()
-    private setDimensions(): void {
+    private setCanvasDimensions(): void {
         this.canvas.width = Canvas.WIDTH;
         this.canvas.height = Canvas.HEIGHT;
+    }
+
+    // translate normally as per ctx standard (x, y)
+    private translateNormal(x: number, y: number): void {
+        this.ctx.translate(x, y);
+    }
+
+    // translate by a % of width + height [0-1]
+    private translatePercent(x: number, y: number): void {
+        this.ctx.translate(x * this.width, y * this.height);
+    }
+
+    // translate by a % of width + height [0-1]
+    private translateByTranslationOption(option: tTranslateOption): void {
+        switch (option) {
+            case 'center':
+                this.ctx.translate(this.center.x, this.center.y);
+                break;
+            case 'top':
+                this.ctx.translate(this.center.x, 0);
+                break;
+            case 'bottom':
+                this.ctx.translate(this.center.x, this.height);
+                break;
+            // 'left'
+            case 'left':
+                this.ctx.translate(0, this.center.y);
+                break;
+            // 'right'
+            case 'right':
+                this.ctx.translate(this.width, this.center.y);
+                break;
+            // 'top-left'
+            case 'top-left':
+                this.ctx.translate(0, 0);
+                break;
+            // 'top-right'
+            case 'top-right':
+                this.ctx.translate(this.width, 0);
+                break;
+            // 'bottom-left'
+            case 'bottom-left':
+                this.ctx.translate(0, this.height);
+                break;
+            // 'bottom-right'
+            case 'bottom-right':
+                this.ctx.translate(this.width, this.height);
+                break;
+        }
     }
 
 }
