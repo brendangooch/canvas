@@ -6,37 +6,45 @@ import CanvasComponent from "./canvas-component.js";
 
 export default class CanvasPath extends CanvasComponent {
 
-    public begin(): void {
-        this.ctx.beginPath();
-    }
-
     // non-zero
-    public fill(): void {
+    public fill(callback: Function): void {
+        this.ctx.beginPath();
+        callback();
         this.ctx.fill();
     }
 
     // even-odd
-    public fill2(): void {
+    public fill2(callback: Function): void {
+        this.ctx.beginPath();
+        callback();
         this.ctx.fill('evenodd');
     }
 
     // stroke()
-    public stroke(): void {
+    public stroke(callback: Function): void {
+        this.ctx.beginPath();
+        callback();
         this.ctx.stroke();
     }
 
     // closePath()
-    public close(): void {
+    public close(callback: Function): void {
+        this.ctx.beginPath();
+        callback();
         this.ctx.closePath();
     }
 
     // non-zero
-    public clip(): void {
+    public clip(callback: Function): void {
+        this.ctx.beginPath();
+        callback();
         this.ctx.clip();
     }
 
     // even-odd
-    public clip2(): void {
+    public clip2(callback: Function): void {
+        this.ctx.beginPath();
+        callback();
         this.ctx.clip('evenodd');
     }
 

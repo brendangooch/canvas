@@ -44,6 +44,7 @@ import testTransform from "./test-transform.js";
 // all tests - comment/uncomment as required
 // @ts-ignore
 export default function (canvas: Canvas): void {
+    // testPath(canvas);
     // testCanvas(canvas);
     // testColor(canvas);
     // testComposite(canvas);
@@ -52,7 +53,6 @@ export default function (canvas: Canvas): void {
     // testImageData(canvas);
     // testImage(canvas);
     // testLine(canvas);
-    // testPath(canvas);
     // testShadow(canvas);
     // testText(canvas);
     // testTransform(canvas);

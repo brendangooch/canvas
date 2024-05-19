@@ -150,20 +150,6 @@ export default class Canvas {
         this.ctx.rotate(radians);
     }
 
-    // shotcut to this.path.begin + callback + this.path.fill
-    public fill(callback: Function): void {
-        this.path.begin()
-        callback();
-        this.path.fill();
-    }
-
-    // shotcut to this.path.begin + callback + this.path.stroke
-    public stroke(callback: Function): void {
-        this.path.begin()
-        callback();
-        this.path.stroke();
-    }
-
     // test that a canvas with id = canvas exists in index.html
     private checkElementExists(): void {
         if (document.getElementById(Canvas.HTML_ID) === null) {
