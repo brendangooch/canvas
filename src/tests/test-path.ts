@@ -20,7 +20,7 @@ export default function (canvas: Canvas): void {
     // testCircle(canvas);              // WORKING
     // testSquare(canvas);              // WORKING
 
-    // (future functionality as needed)
+    // (test functionality as needed)
     // testIsPointInPath(canvas);
     // testIsPointInPath2(canvas);
     // testIsPointInStroke(canvas);
