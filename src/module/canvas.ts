@@ -13,6 +13,8 @@ import CanvasShadow from "./canvas-shadow.js";
 import CanvasText from "./canvas-text.js";
 import CanvasTransform from "./canvas-transform.js";
 
+type tImageSmoothingQuality = 'low' | 'medium' | 'high';
+
 export default class Canvas {
 
     public static HTML_ID: string = 'canvas';
@@ -104,66 +106,61 @@ export default class Canvas {
         return this._transform;
     }
 
-    //getContextAttributes()
-    public get attributes(): {} {
-        return {}
+    public get attributes(): CanvasRenderingContext2DSettings {
+        return this.ctx.getContextAttributes();
     }
 
-    //isContextLost()
-    public get isContextLost(): boolean {
-        return false;
+    public enableSmoothing(quality: tImageSmoothingQuality): void {
+        this.ctx.imageSmoothingEnabled = true;
+        this.ctx.imageSmoothingQuality = quality;
     }
 
-    // imageSmoothingEnabled
-    // imageSmoothingQuality
-    public enableSmoothing(quality: string): void {
-        console.log(quality);
+    public disableSmoothing(): void {
+        this.ctx.imageSmoothingEnabled = false;
     }
 
-    public disableSmoothing(): void { }
+    public clear(): void {
+        this.ctx.clearRect(0, 0, this.width, this.height);
+    }
 
-    // clearRect()
-    public clear(): void { }
-
-    // save()
-    // restore()
     public save(fn: Function): void {
+        this.ctx.save();
         fn();
+        this.ctx.restore();
     }
 
-    // reset()
-    public reset(): void { }
+    public reset(): void {
+        this.ctx.reset();
+    }
 
-    // globalAlpha
     public setAlpha(alpha: number): void {
-        console.log(alpha);
+        this.ctx.globalAlpha = alpha;
     }
 
-    // scale()
     public scale(x: number, y: number): void {
-        console.log(x, y);
+        this.ctx.scale(x, y);
     }
 
-    // translate()
     public translate(x: number, y: number): void {
-        console.log(x, y);
+        this.ctx.translate(x, y);
     }
 
-    // rotate()
     public rotate(radians: number): void {
-        console.log(radians);
+        this.ctx.rotate(radians);
     }
 
-    // beginPath()
-    // fill()
-    public fill(fn: Function): void {
-        fn();
+    // shotcut to this.path.begin + callback + this.path.fill
+    public fill(callback: Function): void {
+        this.path.begin()
+        callback();
+        this.path.fill();
     }
 
-    // beginPath()
-    // stroke()	
-    public stroke(fn: Function): void {
-        fn();
+    // shotcut to this.path.begin + callback + this.path.stroke
+    public stroke(callback: Function): void {
+        this.path.begin()
+        callback();
+        this.path.stroke();
     }
 
     // test that a canvas with id = canvas exists in index.html
