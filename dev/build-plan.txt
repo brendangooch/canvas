@@ -1,14 +1,15 @@
 
 
 order of implementation:
-    canvas
     paths
+    canvas
+    line
     color
     image
-    line
     font
     text
     shadow
+    
     filter*
     composite*
     transform*
