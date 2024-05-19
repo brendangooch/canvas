@@ -110,6 +110,7 @@ export default class Canvas {
         return this.ctx.getContextAttributes();
     }
 
+    // low | medium | high
     public enableSmoothing(quality: tImageSmoothingQuality): void {
         this.ctx.imageSmoothingEnabled = true;
         this.ctx.imageSmoothingQuality = quality;
