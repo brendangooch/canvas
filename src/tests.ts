@@ -7,10 +7,22 @@ import Canvas from "./module/canvas.js";
 // all tests - comment/uncomment as required
 // @ts-ignore
 export default function (canvas: Canvas, images: HTMLImageElement[]): void {
-    testGetWidth(canvas);
-    testGetHeight(canvas);
-    testGetCenter(canvas);
-    // testClear(canvas);
+
+    /***************
+    **
+    **  console assertions (always on)
+    **
+    ****************/
+    testGetWidth(canvas);               // working
+    testGetHeight(canvas);              // working
+    testGetCenter(canvas);              // working
+
+    /***************
+    **
+    **  canvas methods
+    **
+    ****************/
+    // testClear(canvas);               
     // testSave(canvas);
     // testReset(canvas);
     // testSetAlpha(canvas);
@@ -19,10 +31,16 @@ export default function (canvas: Canvas, images: HTMLImageElement[]): void {
     // testRotate(canvas);
     // testFill(canvas);
     // testStroke(canvas);
-    // testGetAttributes(canvas);
-    // testIsContextLost(canvas);
+    // testGetAttributes(canvas);       // working
     // testEnableSmoothing(canvas);
     // testDisableSmoothing(canvas);
+
+
+    /***************
+    **
+    **  canvas component methods
+    **
+    ****************/
     // testPath(canvas);
     // testText(canvas);
     // testColor(canvas);
@@ -37,14 +55,17 @@ export default function (canvas: Canvas, images: HTMLImageElement[]): void {
 }
 
 
+// WORKING
 function testGetWidth(canvas: Canvas): void {
     console.assert(Canvas.WIDTH === canvas.width, 'canvas.width is incorrect');
 }
 
+// WORKING
 function testGetHeight(canvas: Canvas): void {
     console.assert(Canvas.HEIGHT === canvas.height, 'canvas.height is incorrect');
 }
 
+// WORKING
 function testGetCenter(canvas: Canvas): void {
     console.assert(Canvas.WIDTH / 2 === canvas.center.x, 'canvas.center.x is incorrect');
     console.assert(Canvas.HEIGHT / 2 === canvas.center.y, 'canvas.center.y is incorrect');
@@ -77,11 +98,10 @@ function testFill(canvas: Canvas): void { }
 // @ts-ignore
 function testStroke(canvas: Canvas): void { }
 
-// @ts-ignore
-function testGetAttributes(canvas: Canvas): void { }
-
-// @ts-ignore
-function testIsContextLost(canvas: Canvas): void { }
+// WORKING
+function testGetAttributes(canvas: Canvas): void {
+    console.log(canvas.attributes);
+}
 
 // @ts-ignore
 function testEnableSmoothing(canvas: Canvas): void { }
