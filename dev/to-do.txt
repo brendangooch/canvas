@@ -1,3 +1,9 @@
-	
+
+go back through methods used in Canvas class to check for additional options
+
 carefully set some default values where appropriate/required
 experiment with alpha false on attributes when creating context - does it affect the output?
+create a readme file for the project
+set up a free github page with simple docs for the library
+only use roundRect() if available, fallback to rect() if not
+check availability of each not-well-supported feature used and create fallback implementation
