@@ -176,7 +176,7 @@ export default class Canvas {
     // setDimensions()
     private setDimensions(): void {
         this.canvas.width = Canvas.WIDTH;
-        this.canvas.width = Canvas.HEIGHT;
+        this.canvas.height = Canvas.HEIGHT;
     }
 
 }
