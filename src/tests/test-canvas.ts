@@ -3,7 +3,8 @@
  */
 
 import Canvas from "../module/canvas.js";
-import { tTranslateOption } from "../module/custom-types.js";
+// import { tCanvasTranslateOption } from "../module/custom-types.js";
+type tCanvasTranslateOption = 'center' | 'top' | 'bottom' | 'left' | 'right' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
 // all tests - comment/uncomment as required
 // @ts-ignore
@@ -194,7 +195,9 @@ function testTranslateByPercent(canvas: Canvas): void {
 function testTranslateByOption(canvas: Canvas): void {
     console.log('a blue square in each optional translation location (translate(tTranslationOption))');
     canvas.ctx.fillStyle = 'blue';
-    const options: tTranslateOption[] = ['center', 'top', 'bottom', 'left', 'right', 'top-left', 'top-right', 'bottom-left', 'bottom-right'];
+    const options: tCanvasTranslateOption[] = [
+        'center', 'top', 'bottom', 'left', 'right', 'top-left', 'top-right', 'bottom-left', 'bottom-right'
+    ];
     for (let option of options) {
         canvas.save(() => {
             canvas.translate(option);

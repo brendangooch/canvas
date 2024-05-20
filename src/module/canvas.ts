@@ -12,9 +12,9 @@ import CanvasPath from "./canvas-path.js";
 import CanvasShadow from "./canvas-shadow.js";
 import CanvasText from "./canvas-text.js";
 import CanvasTransform from "./canvas-transform.js";
-import { tTranslateOption } from "./custom-types.js";
 
 type tImageSmoothingQuality = 'low' | 'medium' | 'high';
+type tCanvasTranslateOption = 'center' | 'top' | 'bottom' | 'left' | 'right' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
 export default class Canvas {
 
@@ -146,12 +146,12 @@ export default class Canvas {
     }
 
     // translate by: normal (x, y), percent (x < 1, y < 1), option(~'bottom-left')
-    public translate(xOrTranslationOption: number | tTranslateOption, y: number | null = null): void {
+    public translate(xOrTranslationOption: number | tCanvasTranslateOption, y: number | null = null): void {
         if (typeof xOrTranslationOption === 'number' && typeof y === 'number') {
             if (xOrTranslationOption < 1 && y < 1) this.translatePercent(xOrTranslationOption, y);
             else this.translateNormal(xOrTranslationOption, y);
         }
-        else this.translateByTranslationOption(<tTranslateOption>xOrTranslationOption);
+        else this.translateByTranslationOption(<tCanvasTranslateOption>xOrTranslationOption);
     }
 
     public rotate(radians: number): void {
@@ -182,7 +182,7 @@ export default class Canvas {
     }
 
     // translate by a % of width + height [0-1]
-    private translateByTranslationOption(option: tTranslateOption): void {
+    private translateByTranslationOption(option: tCanvasTranslateOption): void {
         switch (option) {
             case 'center':
                 this.ctx.translate(this.center.x, this.center.y);

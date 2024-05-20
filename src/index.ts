@@ -5,7 +5,7 @@
 import Canvas from "./module/canvas.js";
 import testAll from './tests/test-all.js';
 
-(async () => {
+(() => {
 
     window.onload = () => {
 
