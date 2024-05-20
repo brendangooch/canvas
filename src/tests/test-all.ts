@@ -49,13 +49,13 @@ export default function (canvas: Canvas): void {
     // testPath(canvas);        // WORKING
     // testCanvas(canvas);      // WORKING
     // testLine(canvas);        // WORKING
+    // testColor(canvas);       // WORKING
 
     // (to test)
-    testColor(canvas);
+    testFont(canvas);
+    // testText(canvas);
     // testImage(canvas);
     // testComposite(canvas);
-    // testFont(canvas);
-    // testText(canvas);
     // testShadow(canvas);
 
     // (test functionality as needed)
