@@ -5,7 +5,7 @@
 import Canvas from "../module/canvas.js";
 
 // @ts-ignore
-import loadImage from "../utils/load-image.js";
+import loadImage from "../lib/utils/load-image.js";
 
 // all tests - comment/uncomment as required
 // @ts-ignore
