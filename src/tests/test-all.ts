@@ -48,9 +48,9 @@ export default function (canvas: Canvas): void {
     // (tested)
     // testPath(canvas);        // WORKING
     // testCanvas(canvas);      // WORKING
+    // testLine(canvas);        // WORKING
 
     // (to test)
-    // testLine(canvas);
     // testColor(canvas);
     // testImage(canvas);
     // testComposite(canvas);
