@@ -1,4 +1,8 @@
 
+move utils to src/lib folder (utils to be created as separate module)
+create a DynamicCanvas which extends Canvas, has an update method, and allows dynamic filter effects to be applied such as blur in/out
+
+
 carefully set some default values where appropriate/required
 experiment with alpha false on ctx attributes when creating context - does it affect the output?
 check availability of each not-well-supported feature used and create fallback implementation
