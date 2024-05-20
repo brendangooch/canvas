@@ -6,3 +6,6 @@ scrollPathIntoView()Experimental
 drawFocusIfNeeded()
     should never need this functionality
     google and experiment with it at a later date
+
+getLineDash()
+    can see no scenario where this is needed, plus can be reached through public ctx object
