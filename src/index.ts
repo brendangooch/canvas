@@ -14,6 +14,7 @@ import testAll from './tests/test-all.js';
         Canvas.HEIGHT = window.innerHeight;
 
         try {
+
             const canvas = new Canvas();
             testAll(canvas);
 
