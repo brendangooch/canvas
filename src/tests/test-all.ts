@@ -51,7 +51,7 @@ export default function (canvas: Canvas): void {
     // testLine(canvas);        // WORKING
 
     // (to test)
-    // testColor(canvas);
+    testColor(canvas);
     // testImage(canvas);
     // testComposite(canvas);
     // testFont(canvas);
