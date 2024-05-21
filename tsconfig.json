@@ -7,11 +7,10 @@
     "rootDir": "./src",
     "outDir": "./lib",
     "declaration": true,
-    // "declarationDir": "build/types", // use on a case-by-case basis, commented out means .d.ts files appear alongside output js
     "declarationMap": false, // not sure when to use this
-    "sourceMap": false, // turn on to debug
-    "allowJs": false, // set to true if importing js lib from npm
-    "checkJs": false, // set to true if importing js lib from npm
+    "sourceMap": false, // turn on to debug (or turn on with a flag ~tsc --sourceempa)
+    "allowJs": false, // set to true if importing js package from npm
+    "checkJs": false, // set to true if importing js package from npm
     "allowArbitraryExtensions": true,
     "resolveJsonModule": true,
     "allowUnreachableCode": false,
