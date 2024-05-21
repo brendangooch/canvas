@@ -1,16 +1,14 @@
 {
   "compilerOptions": {
     "strict": true,
-    "module": "NodeNext", // set to "preserve" for webpack projects
-    "moduleResolution": "NodeNext", // set to "bundler" for webpack projects
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "target": "ES6",
     "rootDir": "./src",
     "outDir": "./lib",
     "declaration": true,
-    "declarationMap": false, // not sure when to use this
-    "sourceMap": false, // turn on to debug (or turn on with a flag ~tsc --sourceempa)
-    "allowJs": false, // set to true if importing js package from npm
-    "checkJs": false, // set to true if importing js package from npm
+    "allowJs": true,
+    "checkJs": true,
     "allowArbitraryExtensions": true,
     "resolveJsonModule": true,
     "allowUnreachableCode": false,
@@ -20,8 +18,8 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "newLine": "lf", // CRLF on windows
-    "noEmit": false, // true for tools that take the typescript and output the javascript instead of typescript (ie babel)
+    "newLine": "lf",
+    "noEmit": false,
     "noEmitOnError": true,
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
