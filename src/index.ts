@@ -2,17 +2,17 @@
  * 
  */
 
-import CanvasColor from "./canvas-color.js";
-import CanvasCompositeOperation from "./canvas-composite-operation.js";
-import CanvasFilter from "./canvas-filter.js";
-import CanvasFont from "./canvas-font.js";
-import CanvasImageData from "./canvas-image-data.js";
-import CanvasImage from "./canvas-image.js";
-import CanvasLine from "./canvas-line.js";
-import CanvasPath from "./canvas-path.js";
-import CanvasShadow from "./canvas-shadow.js";
-import CanvasText from "./canvas-text.js";
-import CanvasTransform from "./canvas-transform.js";
+import CanvasColor from "./components/canvas-color.js";
+import CanvasCompositeOperation from "./components/canvas-composite-operation.js";
+import CanvasFilter from "./components/canvas-filter.js";
+import CanvasFont from "./components/canvas-font.js";
+import CanvasImageData from "./components/canvas-image-data.js";
+import CanvasImage from "./components/canvas-image.js";
+import CanvasLine from "./components/canvas-line.js";
+import CanvasPath from "./components/canvas-path.js";
+import CanvasShadow from "./components/canvas-shadow.js";
+import CanvasText from "./components/canvas-text.js";
+import CanvasTransform from "./components/canvas-transform.js";
 
 type tImageSmoothingQuality = 'low' | 'medium' | 'high';
 type tCanvasTranslateOption = 'center' | 'top' | 'bottom' | 'left' | 'right' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
