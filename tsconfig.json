@@ -5,7 +5,7 @@
     "moduleResolution": "NodeNext", // set to "bundler" for webpack projects
     "target": "ES6",
     "rootDir": "./src",
-    "outDir": "build/js",
+    "outDir": "./lib",
     "declaration": true,
     // "declarationDir": "build/types", // use on a case-by-case basis, commented out means .d.ts files appear alongside output js
     "declarationMap": false, // not sure when to use this
