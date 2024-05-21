@@ -1,14 +1,23 @@
 {
   "name": "canvas",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "a cleaner implementation of the Canvas API",
   "type": "module",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
   "scripts": {
     "test": "",
     "clear": "rm -rf lib",
     "build": "npm run clear & tsc",
     "build-dev": "npm run clear & tsc --sourceMap"
   },
-  "devDependencies": {
-    "typescript": "^5.4.5"
-  }
+  "keywords": [],
+  "author": "B Gooch <brendangooch@gmail.com>",
+  "license": "MIT"
 }
