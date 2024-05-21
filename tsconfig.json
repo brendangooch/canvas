@@ -16,7 +16,7 @@
     "allowArbitraryExtensions": true,
     "resolveJsonModule": true,
     "newLine": "lf", // CRLF on windows
-    "noEmit": false, // true for webpack?
+    "noEmit": false, // true for tools that take the typescript and output the javascript instead of typescript (ie babel)
     "noEmitOnError": true,
     "removeComments": true,
     "sourceMap": false, // set to true to emit sourcemps

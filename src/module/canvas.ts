@@ -5,6 +5,7 @@
 import CanvasColor from "./canvas-color.js";
 import CanvasCompositeOperation from "./canvas-composite-operation.js";
 import CanvasFilter from "./canvas-filter.js";
+import CanvasFont from "./canvas-font.js";
 import CanvasImageData from "./canvas-image-data.js";
 import CanvasImage from "./canvas-image.js";
 import CanvasLine from "./canvas-line.js";
@@ -26,6 +27,7 @@ export default class Canvas {
     private canvas: HTMLCanvasElement;
     private _path: CanvasPath;
     private _text: CanvasText;
+    private _font: CanvasFont;
     private _color: CanvasColor;
     private _image: CanvasImage;
     private _filter: CanvasFilter;
@@ -41,6 +43,7 @@ export default class Canvas {
         this.ctx = this.canvas.getContext('2d')!;
         this._path = new CanvasPath(this.ctx);
         this._text = new CanvasText(this.ctx);
+        this._font = new CanvasFont(this.ctx);
         this._color = new CanvasColor(this.ctx);
         this._image = new CanvasImage(this.ctx);
         this._filter = new CanvasFilter(this.ctx);
@@ -73,6 +76,10 @@ export default class Canvas {
 
     public get text(): CanvasText {
         return this._text;
+    }
+
+    public get font(): CanvasFont {
+        return this._font;
     }
 
     public get color(): CanvasColor {

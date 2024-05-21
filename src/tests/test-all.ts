@@ -50,16 +50,16 @@ export default function (canvas: Canvas): void {
     // testCanvas(canvas);      // WORKING
     // testLine(canvas);        // WORKING
     // testColor(canvas);       // WORKING
+    // testFont(canvas);        // WORKING
 
     // (to test)
-    testFont(canvas);
-    // testText(canvas);
-    // testImage(canvas);
-    // testComposite(canvas);
     // testShadow(canvas);
+    // testImage(canvas);
+    // testText(canvas);
+    // testFilter(canvas);
+    // testComposite(canvas);
 
     // (test functionality as needed)
-    // testFilter(canvas);
     // testImageData(canvas);
     // testTransform(canvas);
 

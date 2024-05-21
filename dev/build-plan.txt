@@ -5,14 +5,13 @@ order of implementation:
     canvas
     line
     color
-    image
     font
-    text
     shadow
-    
-    filter*
-    composite*
+    image
+    text
+    filter
+    composite
     transform*
     imageData*
     
-* implement later on
+* implement later on, when required

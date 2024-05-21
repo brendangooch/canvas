@@ -17,6 +17,17 @@ export default class CanvasFont extends CanvasComponent {
     private weight: tFontWeight = 'normal';
     private height: tFontHeight = 'normal'; // whole number
 
+    public reset(): void {
+        this.size = 24;
+        this.families = ['sans-serif'];
+        this.style = 'normal';
+        this.weight = 'normal';
+        this.height = 'normal';
+        this.autoKerning();
+        this.stretch('normal');
+        this.variantCaps('normal');
+    }
+
     public setSize(size: number): void {
         this.size = size;
         this.update();
@@ -55,10 +66,14 @@ export default class CanvasFont extends CanvasComponent {
     }
 
     // fontStretch
-
+    public stretch(value: CanvasFontStretch): void {
+        this.ctx.fontStretch = value;
+    }
 
     // fontVariantCaps
-
+    public variantCaps(value: CanvasFontVariantCaps): void {
+        this.ctx.fontVariantCaps = value;
+    }
 
     // font must include values for: font-size, font-family
     // font-style and font-weight must precede font-size
@@ -69,7 +84,7 @@ export default class CanvasFont extends CanvasComponent {
         if (this.style && this.style !== 'normal') font += `${this.style} `;
         if (this.weight && this.weight !== 'normal') font += `${this.weight} `;
         font += `${this.size}px`;
-        if (this.height) font += `/${this.height}`;
+        if (this.height !== 'normal') font += `/${this.height}`;
         font += ` ${this.families.join()}`;
         this.ctx.font = font;
     }
