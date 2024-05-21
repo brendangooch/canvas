@@ -6,6 +6,14 @@
     "target": "ES6",
     "rootDir": "./src",
     "outDir": "build/js",
+    "declaration": true,
+    // "declarationDir": "build/types", // use on a case-by-case basis, commented out means .d.ts files appear alongside output js
+    "declarationMap": false, // not sure when to use this
+    "sourceMap": false, // turn on to debug
+    "allowJs": false, // set to true if importing js lib from npm
+    "checkJs": false, // set to true if importing js lib from npm
+    "allowArbitraryExtensions": true,
+    "resolveJsonModule": true,
     "allowUnreachableCode": false,
     "exactOptionalPropertyTypes": true,
     "noFallthroughCasesInSwitch": true,
@@ -13,15 +21,10 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "allowArbitraryExtensions": true,
-    "resolveJsonModule": true,
     "newLine": "lf", // CRLF on windows
     "noEmit": false, // true for tools that take the typescript and output the javascript instead of typescript (ie babel)
     "noEmitOnError": true,
     "removeComments": true,
-    "sourceMap": false, // set to true to emit sourcemps
-    "allowJs": false, // set to true if importing js lib from npm
-    "checkJs": false, // set to true if importing js lib from npm
     "allowSyntheticDefaultImports": true,
     "noErrorTruncation": false
   },
