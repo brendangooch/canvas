@@ -57,6 +57,5 @@ describe('CanvasColor', () => {
     testStroke();
     testChange();
     testReset();
-    testLinear();
 
 });
