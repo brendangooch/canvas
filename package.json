@@ -18,9 +18,9 @@
   },
   "type": "module",
   "exports": {
-    ".": "./lib/index.js"
+    ".": "./lib/canvas.js"
   },
-  "types": "./lib/index.d.ts",
+  "types": "./lib/canvas.d.ts",
   "files": [
     "/lib",
     "!/lib/**/*.js.map",
