@@ -31,10 +31,11 @@ export default class CanvasText extends CanvasComponent {
 
 
 
-    // direction
+    // text direction
+    public direction(): void { }
     public rtl(): void { }
     public ltr(): void { }
-    public inherit(): void { }
+    public inheritDirection(): void { }
 
 
 
