@@ -167,7 +167,7 @@ export default class Canvas {
 
     // load an html canvas into this.canvas property
     private loadCanvas(id: string | null): HTMLCanvasElement {
-        if (this.htmlElementExists(id)) {
+        if (this.htmlElementExists(id) && id) {
             return <HTMLCanvasElement>document.getElementById(id);
         }
         else {
