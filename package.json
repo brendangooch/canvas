@@ -1,23 +1,47 @@
 {
-  "name": "canvas",
+  "name": "@brendangooch/canvas",
   "version": "1.0.0",
   "description": "a cleaner implementation of the Canvas API",
-  "type": "module",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
+  "author": "B Gooch <brendangooch@gmail.com>",
+  "license": "MIT",
+  "os": [
+    "linux"
+  ],
+  "scripts": {
+    "test": "",
+    "clear": "rm -rf lib",
+    "build": "npm run clear & tsc"
   },
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "types": "./lib/index.d.ts",
+  "files": [
+    "/lib",
+    "!/lib/**/*.js.map",
+    "!/lib/*.js.map"
+  ],
   "dependencies": {},
   "devDependencies": {
     "typescript": "^5.4.5"
   },
-  "scripts": {
-    "test": "",
-    "clear": "rm -rf lib",
-    "build": "npm run clear & tsc",
-    "build-dev": "npm run clear & tsc --sourceMap"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brendangooch/canvas.git"
   },
-  "keywords": [],
-  "author": "B Gooch <brendangooch@gmail.com>",
-  "license": "MIT"
+  "homepage": "https://github.com/brendangooch/canvas#readme",
+  "bugs": {
+    "url": "https://github.com/brendangooch/canvas/issues",
+    "email": "brendangooch@gmail.com"
+  },
+  "keywords": [
+    "canvas",
+    "html canvas",
+    "canvas api"
+  ]
 }
