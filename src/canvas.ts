@@ -19,7 +19,6 @@ type tCanvasTranslateOption = 'center' | 'top' | 'bottom' | 'left' | 'right' | '
 
 export default class Canvas {
 
-    public static HTML_ID: string = 'canvas';
     public static WIDTH: number = 300; // chrome default
     public static HEIGHT: number = 150; // chrome default
 
@@ -38,8 +37,8 @@ export default class Canvas {
     private _composite: CanvasCompositeOperation;
     private _transform: CanvasTransform;
 
-    public constructor() {
-        this.canvas = this.loadCanvas();
+    public constructor(id: string | null = null) {
+        this.canvas = this.loadCanvas(id);
         this.ctx = this.canvas.getContext('2d')!;
         this.setCanvasDimensions();
         this._path = new CanvasPath(this.ctx);
@@ -167,9 +166,9 @@ export default class Canvas {
     }
 
     // load an html canvas into this.canvas property
-    private loadCanvas(): HTMLCanvasElement {
-        if (this.htmlElementExists()) {
-            return <HTMLCanvasElement>document.getElementById(Canvas.HTML_ID);
+    private loadCanvas(id: string | null): HTMLCanvasElement {
+        if (this.htmlElementExists(id)) {
+            return <HTMLCanvasElement>document.getElementById(id);
         }
         else {
             return document.createElement('canvas');
@@ -177,8 +176,11 @@ export default class Canvas {
     }
 
     // test that a canvas with id = canvas exists in index.html
-    private htmlElementExists(): boolean {
-        return document.getElementById(Canvas.HTML_ID) !== null;
+    private htmlElementExists(id: string | null): boolean {
+        if (!id) {
+            return false;
+        }
+        return document.getElementById(id) !== null;
     }
 
     // setDimensions()
