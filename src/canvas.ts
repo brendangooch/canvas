@@ -20,11 +20,12 @@ type tCanvasTranslateOption = 'center' | 'top' | 'bottom' | 'left' | 'right' | '
 export default class Canvas {
 
     public static HTML_ID: string = 'canvas';
-    public static WIDTH: number = window.innerWidth;
-    public static HEIGHT: number = window.innerHeight;
+    public static WIDTH: number = 300; // chrome default
+    public static HEIGHT: number = 150; // chrome default
 
     public ctx: CanvasRenderingContext2D;
     private canvas: HTMLCanvasElement;
+
     private _path: CanvasPath;
     private _text: CanvasText;
     private _font: CanvasFont;
@@ -38,9 +39,9 @@ export default class Canvas {
     private _transform: CanvasTransform;
 
     public constructor() {
-        this.checkElementExists();
-        this.canvas = <HTMLCanvasElement>document.getElementById(Canvas.HTML_ID);
+        this.canvas = this.loadCanvas();
         this.ctx = this.canvas.getContext('2d')!;
+        this.setCanvasDimensions();
         this._path = new CanvasPath(this.ctx);
         this._text = new CanvasText(this.ctx);
         this._font = new CanvasFont(this.ctx);
@@ -52,7 +53,6 @@ export default class Canvas {
         this._imageData = new CanvasImageData(this.ctx);
         this._composite = new CanvasCompositeOperation(this.ctx);
         this._transform = new CanvasTransform(this.ctx);
-        this.setCanvasDimensions();
     }
 
     public get width(): number {
@@ -143,6 +143,7 @@ export default class Canvas {
     }
 
     public setOpacity(alpha: number): void {
+        if (alpha < 0) alpha = 0;
         this.ctx.globalAlpha = alpha;
     }
 
@@ -165,11 +166,19 @@ export default class Canvas {
         this.ctx.rotate(radians);
     }
 
-    // test that a canvas with id = canvas exists in index.html
-    private checkElementExists(): void {
-        if (document.getElementById(Canvas.HTML_ID) === null) {
-            throw new Error('the page MUST contain a canvas element with id = canvas to use the Canvas class');
+    // load an html canvas into this.canvas property
+    private loadCanvas(): HTMLCanvasElement {
+        if (this.htmlElementExists()) {
+            return <HTMLCanvasElement>document.getElementById(Canvas.HTML_ID);
         }
+        else {
+            return document.createElement('canvas');
+        }
+    }
+
+    // test that a canvas with id = canvas exists in index.html
+    private htmlElementExists(): boolean {
+        return document.getElementById(Canvas.HTML_ID) !== null;
     }
 
     // setDimensions()
