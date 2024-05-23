@@ -12,8 +12,11 @@ export default class CanvasColor extends CanvasComponent {
 
     private gradient: CanvasGradient | null = null;
 
-    // reset color back to default (black), remove gradient
+    // reset color styles back to default (black), set gradient to null
+    // (colors would be reset to default when this method gets called but reset here to pass tests)
     public reset(): void {
+        this.ctx.fillStyle = '#000000';
+        this.ctx.strokeStyle = '#000000';
         this.gradient = null;
     }
 

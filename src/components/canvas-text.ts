@@ -14,7 +14,6 @@ export default class CanvasText extends CanvasComponent {
         letterSpacing?: number;
         direction?: CanvasDirection;
     }): void {
-        console.log(props);
         if (props.align) this.align(props.align);
         if (props.baseline) this.baseline(props.baseline);
         if (props.rendering) this.rendering(props.rendering);
