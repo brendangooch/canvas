@@ -152,55 +152,18 @@ export default class Canvas {
         else this.ctx.scale(xOrBoth, xOrBoth);
     }
 
-    // translate by: normal (x, y), percent (x < 1, y < 1), option(~'bottom-left')
-    public translate(xOrTranslationOption: number | tCanvasTranslateOption, y: number | null = null): void {
-        if (typeof xOrTranslationOption === 'number' && typeof y === 'number') {
-            if (xOrTranslationOption < 1 && y < 1) this.translatePercent(xOrTranslationOption, y);
-            else this.translateNormal(xOrTranslationOption, y);
-        }
-        else this.translateByTranslationOption(<tCanvasTranslateOption>xOrTranslationOption);
-    }
-
-    public rotate(radians: number): void {
-        this.ctx.rotate(radians);
-    }
-
-    // load an html canvas into this.canvas property
-    private loadCanvas(id: string | null): HTMLCanvasElement {
-        if (this.htmlElementExists(id) && id) {
-            return <HTMLCanvasElement>document.getElementById(id);
-        }
-        else {
-            return document.createElement('canvas');
-        }
-    }
-
-    // test that a canvas with id = canvas exists in index.html
-    private htmlElementExists(id: string | null): boolean {
-        if (!id) {
-            return false;
-        }
-        return document.getElementById(id) !== null;
-    }
-
-    // setDimensions()
-    private setCanvasDimensions(): void {
-        this.canvas.width = Canvas.WIDTH;
-        this.canvas.height = Canvas.HEIGHT;
-    }
-
     // translate normally as per ctx standard (x, y)
-    private translateNormal(x: number, y: number): void {
+    public translate(x: number, y: number): void {
         this.ctx.translate(x, y);
     }
 
     // translate by a % of width + height [0-1]
-    private translatePercent(x: number, y: number): void {
+    public translateByPercent(x: number, y: number): void {
         this.ctx.translate(x * this.width, y * this.height);
     }
 
     // translate by a % of width + height [0-1]
-    private translateByTranslationOption(option: tCanvasTranslateOption): void {
+    public translateToPosition(option: tCanvasTranslateOption): void {
         switch (option) {
             case 'center':
                 this.ctx.translate(this.center.x, this.center.y);
@@ -237,5 +200,35 @@ export default class Canvas {
                 break;
         }
     }
+
+    public rotate(radians: number): void {
+        this.ctx.rotate(radians);
+    }
+
+    // load an html canvas into this.canvas property
+    private loadCanvas(id: string | null): HTMLCanvasElement {
+        if (this.htmlElementExists(id) && id) {
+            return <HTMLCanvasElement>document.getElementById(id);
+        }
+        else {
+            return document.createElement('canvas');
+        }
+    }
+
+    // test that a canvas with id = canvas exists in index.html
+    private htmlElementExists(id: string | null): boolean {
+        if (!id) {
+            return false;
+        }
+        return document.getElementById(id) !== null;
+    }
+
+    // setDimensions()
+    private setCanvasDimensions(): void {
+        this.canvas.width = Canvas.WIDTH;
+        this.canvas.height = Canvas.HEIGHT;
+    }
+
+
 
 }
