@@ -12,6 +12,15 @@ describe('CanvasFilter', () => {
         canvas = new Canvas();
     });
 
+    describe('reset()', () => {
+        test('sets ctx.filter back to "none"', () => {
+            canvas.filter.blur(10);
+            canvas.filter.brightness(10);
+            canvas.filter.reset();
+            expect(canvas.ctx.filter).toBe('none');
+        });
+    });
+
     // blur()
     // public blur(amount: number): void
     // blur(${amount}px)

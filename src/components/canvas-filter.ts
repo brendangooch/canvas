@@ -13,6 +13,10 @@ export default class CanvasFilter extends CanvasComponent {
         this.none();
     }
 
+    public reset(): void {
+        this.none();
+    }
+
     // blur()
     // limited to px
     public blur(amount: number): void {

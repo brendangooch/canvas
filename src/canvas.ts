@@ -141,6 +141,7 @@ export default class Canvas {
     }
 
     // font and color components store internal state
+    // resetting filter sets ctx.filter to default 'none' (to help pass tests)
     public reset(): void {
         this.ctx.reset();
         this.font.reset();
