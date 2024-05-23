@@ -138,14 +138,19 @@ export default class Canvas {
         this.ctx.restore();
         this.font.reset();
         this.color.reset();
+        this.filter.reset();
     }
 
     // font and color components store internal state
     // resetting filter sets ctx.filter to default 'none' (to help pass tests)
+    // ctx state is NOT reset if ctx.reset is not available on the client
     public reset(): void {
-        this.ctx.reset();
+        if (typeof this.ctx.reset === 'function') {
+            this.ctx.reset();
+        }
         this.font.reset();
         this.color.reset();
+        this.filter.reset();
     }
 
     public setOpacity(alpha: number): void {
