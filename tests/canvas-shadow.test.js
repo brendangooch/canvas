@@ -69,10 +69,61 @@ function testOffsetY() {
     });
 }
 
+function testSetAll() {
+
+    describe('setAll({x, y, blur, color})', () => {
+
+        describe('canvas.shadow.setAll({x: 20, y: 20, blur: 10, color: "#ff0000"}):', () => {
+            const canvas = new Canvas();
+            canvas.shadow.setAll({
+                x: 20,
+                y: 20,
+                blur: 10,
+                color: '#ff0000'
+            });
+            test('sets ctx.shadowOffsetX to 20', () => {
+                expect(canvas.ctx.shadowOffsetX).toBe(20);
+            });
+            test('sets ctx.shadowOffsetY to 20', () => {
+                expect(canvas.ctx.shadowOffsetY).toBe(20);
+            });
+            test('sets ctx.shadowBlur to 10', () => {
+                expect(canvas.ctx.shadowBlur).toBe(10);
+            });
+            test('sets ctx.shadowColor to "#ff0000"', () => {
+                expect(canvas.ctx.shadowColor).toBe('#ff0000');
+            });
+        });
+
+        describe('canvas.shadow.setAll({x: 5, y: 5, blur: 0}):', () => {
+            const canvas = new Canvas();
+            canvas.shadow.setAll({
+                x: 5,
+                y: 5,
+                blur: 0
+            });
+            test('sets ctx.shadowOffsetX to 5', () => {
+                expect(canvas.ctx.shadowOffsetX).toBe(5);
+            });
+            test('sets ctx.shadowOffsetY to 5', () => {
+                expect(canvas.ctx.shadowOffsetY).toBe(5);
+            });
+            test('sets ctx.shadowBlur to 0', () => {
+                expect(canvas.ctx.shadowBlur).toBe(0);
+            });
+            test('ctx.shadowColor remains "#000000"', () => {
+                expect(canvas.ctx.shadowColor).toBe('rgba(0, 0, 0, 0.00)');
+            });
+        });
+
+    });
+}
+
 describe('CanvasShadow', () => {
     testBlur();
     testColor();
     testOffsetX();
     testOffsetY();
+    testSetAll();
 
 });

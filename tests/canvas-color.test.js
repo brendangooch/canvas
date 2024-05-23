@@ -2,7 +2,7 @@
  * 
  */
 
-import { jest } from '@jest/globals';
+// import { jest } from '@jest/globals';
 import Canvas from '../lib/canvas.js';
 
 function testFill() {

@@ -7,6 +7,7 @@ import CanvasComponent from "./canvas-component.js";
 export default class CanvasFilter extends CanvasComponent {
 
     // initialise filter to 'none'
+    // this is to pass the tests using proxy ctx object
     public constructor(ctx: CanvasRenderingContext2D) {
         super(ctx);
         this.none();
@@ -90,7 +91,6 @@ export default class CanvasFilter extends CanvasComponent {
     private addFilter(filter: string): void {
         if (this.ctx.filter === 'none') this.ctx.filter = filter;
         else this.ctx.filter += ` ${filter}`;
-
     }
 
     private clampToUnit(amount: number): number {

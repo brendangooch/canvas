@@ -131,14 +131,20 @@ export default class Canvas {
         this.ctx.clearRect(0, 0, this.width, this.height);
     }
 
+    // font and color components store internal state
     public save(fn: Function): void {
         this.ctx.save();
         fn();
         this.ctx.restore();
+        this.font.reset();
+        this.color.reset();
     }
 
+    // font and color components store internal state
     public reset(): void {
         this.ctx.reset();
+        this.font.reset();
+        this.color.reset();
     }
 
     public setOpacity(alpha: number): void {

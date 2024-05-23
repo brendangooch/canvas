@@ -6,114 +6,98 @@ import CanvasComponent from "./canvas-component.js";
 
 export default class CanvasLine extends CanvasComponent {
 
-    // reset to default line settings
-    public reset(): void {
-        this.defaultWidth();
-        this.defaultCap();
-        this.defaultJoin();
-        this.defaultMiterLimit();
-        this.clearDash();
-
-    }
-
-    // lineWidth = 1
-    public defaultWidth(): void {
-        this.ctx.lineWidth = 1;
+    // set all properties in one command
+    public setAll(props: {
+        thickness?: number;
+        cap?: CanvasLineCap;
+        dashPattern?: number[];
+        dashOffset?: number;
+        join?: CanvasLineJoin;
+        miterLimit?: number;
+    }): void {
+        if (props.thickness) this.thickness(props.thickness);
+        if (props.cap) this.cap(props.cap);
+        if (props.dashPattern) this.dashPattern(props.dashPattern);
+        if (props.dashOffset) this.dashOffset(props.dashOffset);
+        if (props.join) this.join(props.join);
+        if (props.miterLimit) this.miterLimit(props.miterLimit);
     }
 
     // lineWidth
-    public setWidth(units: number): void {
+    public thickness(units: number): void {
         this.ctx.lineWidth = units;
     }
 
-    // lineWidth = 1
-    public thinnest(): void {
-        this.ctx.lineWidth = 0.5;
-    }
-
-    // lineWidth = 1
+    // lineWidth = 2
     public thin(): void {
-        this.ctx.lineWidth = 1;
-    }
-
-    // lineWidth = 5
-    public medium(): void {
-        this.ctx.lineWidth = 5;
+        this.ctx.lineWidth = 2;
     }
 
     // lineWidth = 10
-    public thick(): void {
+    public medium(): void {
         this.ctx.lineWidth = 10;
     }
 
     // lineWidth = 25
-    public thickest(): void {
-        this.ctx.lineWidth = 10;
+    public thick(): void {
+        this.ctx.lineWidth = 25;
     }
 
-
-    // lineCap = default = ??
-    public defaultCap(): void {
-        this.ctx.lineCap = 'butt';
+    public cap(value: CanvasLineCap): void {
+        this.ctx.lineCap = value;
     }
 
     // lineCap = butt
     public buttCap(): void {
-        this.defaultCap();
+        this.cap('butt');
     }
 
     // lineCap = round
     public roundCap(): void {
-        this.ctx.lineCap = 'round';
+        this.cap('round');
     }
 
     // lineCap = square
     public squareCap(): void {
-        this.ctx.lineCap = 'square';
+        this.cap('square');
     }
 
-    // lineDashOffset + setLineDash()
-    public setDash(pattern: number[], offset: number = 0): void {
+    public dashPattern(pattern: number[]): void {
         this.ctx.setLineDash(pattern);
+    }
+
+    public dashOffset(offset: number): void {
         this.ctx.lineDashOffset = offset;
     }
 
-    // lineDashOffset + setLineDash()
-    public clearDash(): void {
-        this.ctx.setLineDash([]);
-        this.ctx.lineDashOffset = 0;
+    // lineDashOffset + setLineDash() convenience method
+    public dash(pattern: number[], offset: number = 0): void {
+        this.dashPattern(pattern);
+        this.dashOffset(offset);
     }
 
-    // lineJoin = miter
-    public defaultJoin(): void {
-        this.ctx.lineJoin = 'miter';
+    public join(value: CanvasLineJoin): void {
+        this.ctx.lineJoin = value;
     }
 
     // lineJoin = round
     public roundJoin(): void {
-        this.ctx.lineJoin = 'round';
+        this.join('round');
     }
 
     // lineJoin = bevel
     public bevelJoin(): void {
-        this.ctx.lineJoin = 'bevel';
+        this.join('bevel');
     }
 
-    // lineJoin = miter
+    // lineJoin = miter (default)
     public miterJoin(): void {
-        this.defaultJoin();
-    }
-
-    // miterLimit = ??
-    public defaultMiterLimit(): void {
-        this.ctx.miterLimit = 10;
+        this.join('miter');
     }
 
     // miterLimit
-    public setMiterLimit(units: number): void {
+    public miterLimit(units: number): void {
         this.ctx.miterLimit = units;
     }
-
-
 
 }
