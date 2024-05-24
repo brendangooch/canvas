@@ -14,7 +14,7 @@ export default class CanvasPath extends CanvasComponent {
     }
 
     // even-odd
-    public fill2(callback: Function): void {
+    public fillEvenOdd(callback: Function): void {
         this.ctx.beginPath();
         callback();
         this.ctx.fill('evenodd');
@@ -42,7 +42,7 @@ export default class CanvasPath extends CanvasComponent {
     }
 
     // even-odd
-    public clip2(callback: Function): void {
+    public clipEvenOdd(callback: Function): void {
         this.ctx.beginPath();
         callback();
         this.ctx.clip('evenodd');
@@ -84,10 +84,10 @@ export default class CanvasPath extends CanvasComponent {
         this.ctx.arc(0, 0, radius, startAngle, endAngle, counterclockwise);
     }
 
-    // rect() / roundRect()
+    // rect() / roundRect() combined
     public rect(width: number, height: number, radii: number | number[] = 0): void {
         // roundRect available
-        if (typeof this.ctx.roundRect === 'function') {
+        if (this.ctx.roundRect && radii) {
             this.ctx.roundRect(-width / 2, -height / 2, width, height, radii);
         }
         else {
@@ -116,7 +116,7 @@ export default class CanvasPath extends CanvasComponent {
     }
 
     // even-odd
-    public isPointInPath2(x: number, y: number): boolean {
+    public isPointInPathEvenOdd(x: number, y: number): boolean {
         return this.ctx.isPointInPath(x, y, 'evenodd');
     }
 

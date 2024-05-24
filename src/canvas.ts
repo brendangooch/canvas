@@ -145,7 +145,7 @@ export default class Canvas {
     // resetting filter sets ctx.filter to default 'none' (to help pass tests)
     // ctx state is NOT reset if ctx.reset is not available on the client
     public reset(): void {
-        if (typeof this.ctx.reset === 'function') {
+        if (this.ctx.reset) {
             this.ctx.reset();
         }
         this.font.reset();
@@ -153,15 +153,19 @@ export default class Canvas {
         this.filter.reset();
     }
 
-    public setOpacity(alpha: number): void {
+    public opacity(alpha: number): void {
+        // clamp alpha [0-1]
+        alpha = (alpha < 0) ? 0 : (alpha > 1) ? 1 : alpha;
         if (alpha < 0) alpha = 0;
         this.ctx.globalAlpha = alpha;
     }
 
-    // accepts either standard x,y OR x can represent both scales
-    public scale(xOrBoth: number, y: number | null = null): void {
-        if (typeof xOrBoth === "number" && typeof y === "number") this.ctx.scale(xOrBoth, y);
-        else this.ctx.scale(xOrBoth, xOrBoth);
+    public scaleXY(x: number, y: number): void {
+        this.ctx.scale(x, y);
+    }
+
+    public scaleBoth(amount: number): void {
+        this.ctx.scale(amount, amount);
     }
 
     // translate normally as per ctx standard (x, y)
@@ -171,11 +175,14 @@ export default class Canvas {
 
     // translate by a % of width + height [0-1]
     public translateByPercent(x: number, y: number): void {
+        // clamp x & y [0-1]
+        x = (x < 0) ? 0 : (x > 1) ? 1 : x;
+        y = (y < 0) ? 0 : (y > 1) ? 1 : y;
         this.ctx.translate(x * this.width, y * this.height);
     }
 
     // translate by a % of width + height [0-1]
-    public translateToPosition(option: tCanvasTranslateOption): void {
+    public translateByOption(option: tCanvasTranslateOption): void {
         switch (option) {
             case 'center':
                 this.ctx.translate(this.center.x, this.center.y);

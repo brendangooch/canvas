@@ -52,29 +52,29 @@ function testSmoothing() {
     });
 }
 
-function testSetOpacity() {
+function testOpacity() {
     describe('ctx.globalAlpha set correctly', () => {
 
         test('sets ctx.globalAlpha to 0.5', () => {
             const canvas = new Canvas();
-            canvas.setOpacity(0.5);
+            canvas.opacity(0.5);
             expect(canvas.ctx.globalAlpha).toBe(0.5);
         });
         test('cannot set a value higher than 1', () => {
             const canvas = new Canvas();
-            canvas.setOpacity(1.01);
+            canvas.opacity(1.01);
             expect(canvas.ctx.globalAlpha).toBe(1);
-            canvas.setOpacity(2);
+            canvas.opacity(2);
             expect(canvas.ctx.globalAlpha).toBe(1);
         });
 
         test('cannot set a value lower than 0', () => {
             const canvas = new Canvas();
-            canvas.setOpacity(-0.01);
+            canvas.opacity(-0.01);
             expect(canvas.ctx.globalAlpha).toBe(0);
-            canvas.setOpacity(-1);
+            canvas.opacity(-1);
             expect(canvas.ctx.globalAlpha).toBe(0);
-            canvas.setOpacity(-2);
+            canvas.opacity(-2);
             expect(canvas.ctx.globalAlpha).toBe(0);
         });
 
@@ -84,7 +84,7 @@ function testSetOpacity() {
 describe('Canvas', () => {
     testGetDimensions();
     testSmoothing();
-    testSetOpacity();
+    testOpacity();
 
 
 

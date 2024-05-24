@@ -6,10 +6,15 @@ import CanvasComponent from "./canvas-component.js";
 
 export default class CanvasShadow extends CanvasComponent {
 
-    public setAll(props: { x: number; y: number; blur: number; color?: string }): void {
-        this.offsetX(props.x);
-        this.offsetY(props.y);
-        this.blur(props.blur);
+    public setAll(props: {
+        x?: number;
+        y?: number;
+        blur?: number;
+        color?: string
+    }): void {
+        if (props.x) this.offsetX(props.x);
+        if (props.y) this.offsetY(props.y);
+        if (props.blur) this.blur(props.blur);
         if (props.color) this.color(props.color);
     }
 

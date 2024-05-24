@@ -63,7 +63,7 @@ export default class CanvasColor extends CanvasComponent {
 
     // createPattern()
     // only accepts image elements at the moment (other image types available in spec)
-    public pattern(which: tCanvasStrokeOrFill, image: HTMLImageElement, repetition: tCanvasPatternRepitition): void {
+    public pattern(which: tCanvasStrokeOrFill, image: HTMLImageElement, repetition: tCanvasPatternRepitition = 'repeat'): void {
         const pattern = this.ctx.createPattern(image, repetition);
         if (pattern) {
             this.change(which, pattern);

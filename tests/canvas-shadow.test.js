@@ -116,6 +116,41 @@ function testSetAll() {
             });
         });
 
+        describe('each shadow property can be set individually with setAll()', () => {
+
+            test('sets ctx.shadowOffsetX to 20', () => {
+                const canvas = new Canvas();
+                canvas.shadow.setAll({
+                    x: 20
+                });
+                expect(canvas.ctx.shadowOffsetX).toBe(20);
+            });
+
+            test('sets ctx.shadowOffsetY to 20', () => {
+                const canvas = new Canvas();
+                canvas.shadow.setAll({
+                    y: 20
+                });
+                expect(canvas.ctx.shadowOffsetY).toBe(20);
+            });
+
+            test('sets ctx.shadowBlur to 10', () => {
+                const canvas = new Canvas();
+                canvas.shadow.setAll({
+                    blur: 10
+                });
+                expect(canvas.ctx.shadowBlur).toBe(10);
+            });
+
+            test('sets ctx.shadowColor to "#ff0000"', () => {
+                const canvas = new Canvas();
+                canvas.shadow.setAll({
+                    color: '#ff0000'
+                });
+                expect(canvas.ctx.shadowColor).toBe('#ff0000');
+            });
+        });
+
     });
 }
 

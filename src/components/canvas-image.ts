@@ -1,13 +1,10 @@
 /**
+ * supports HTML images only at present
+ * images are rendered from the center at the current translated position
  * 
  */
 
 import CanvasComponent from "./canvas-component.js";
-
-// drawImage()
-// drawImage(image, dx, dy)
-// drawImage(image, dx, dy, dWidth, dHeight)
-// drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
 
 export default class CanvasImage extends CanvasComponent {
 

@@ -7,7 +7,7 @@ import CanvasComponent from "./canvas-component.js";
 export default class CanvasFilter extends CanvasComponent {
 
     // initialise filter to 'none'
-    // this is to pass the tests using proxy ctx object
+    // this is to pass the tests using proxy ctx object but will probably be default in browser environments
     public constructor(ctx: CanvasRenderingContext2D) {
         super(ctx);
         this.none();

@@ -32,8 +32,8 @@ export default class CanvasImageData extends CanvasComponent {
     // putImageData(imageData, dx, dy, dirtyX, dirtyY, dirtyWidth, dirtyHeight)
     public insertFrom(
         data: ImageData,
-        dx: number,
-        dy: number,
+        dx: number = 0,
+        dy: number = 0,
         dirtyX: number = 0,
         dirtyY: number = 0,
         dirtyWidth: number = data.height,
