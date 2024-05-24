@@ -117,6 +117,10 @@ export default class Canvas {
         return this.ctx.getContextAttributes();
     }
 
+    public appendTo(parent: HTMLElement): void {
+        parent.appendChild(this.canvas);
+    }
+
     // low | medium | high
     public enableSmoothing(quality: tImageSmoothingQuality): void {
         this.ctx.imageSmoothingEnabled = true;
