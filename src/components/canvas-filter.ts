@@ -13,6 +13,41 @@ export default class CanvasFilter extends CanvasComponent {
         this.none();
     }
 
+    public setAll(props: {
+        blur?: number;
+        brightness?: number;
+        contrast?: number;
+        shadow?: {
+            x: number;
+            y: number;
+            amount?: number;
+            color?: string;
+        };
+        grayscale?: number;
+        hueRotate: number;
+        invert?: number;
+        opacity?: number;
+        saturate?: number;
+        sepia?: number;
+    }): void {
+        if (props.blur) this.blur(props.blur);
+        if (props.brightness) this.brightness(props.brightness);
+        if (props.contrast) this.contrast(props.contrast);
+        if (props.grayscale) this.grayscale(props.grayscale);
+        if (props.hueRotate) this.hueRotate(props.hueRotate);
+        if (props.invert) this.invert(props.invert);
+        if (props.opacity) this.opacity(props.opacity);
+        if (props.saturate) this.saturate(props.saturate);
+        if (props.sepia) this.sepia(props.sepia);
+        if (props.shadow) {
+            const s = props.shadow;
+            if (props.shadow.amount && props.shadow.color) this.dropShadow(s.x, s.y, s.amount, s.color);
+            if (props.shadow.amount && !props.shadow.color) this.dropShadow(s.x, s.y, s.amount);
+            if (!props.shadow.amount && props.shadow.color) this.dropShadow(s.x, s.y, 0, s.color);
+            if (!props.shadow.amount && !props.shadow.color) this.dropShadow(s.x, s.y);
+        }
+    }
+
     public reset(): void {
         this.none();
     }
