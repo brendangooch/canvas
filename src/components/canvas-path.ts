@@ -28,9 +28,7 @@ export default class CanvasPath extends CanvasComponent {
     }
 
     // closePath()
-    public close(callback: Function): void {
-        this.ctx.beginPath();
-        callback();
+    public close(): void {
         this.ctx.closePath();
     }
 
@@ -96,8 +94,8 @@ export default class CanvasPath extends CanvasComponent {
     }
 
     // ellipse()
-    public ellipse(x: number, y: number, radiusX: number, radiusY: number, rotation: number, startAngle: number, endAngle: number, counterclockwise: boolean = false): void {
-        this.ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle, counterclockwise);
+    public ellipse(radiusX: number, radiusY: number, startAngle: number, endAngle: number, counterclockwise: boolean = false): void {
+        this.ctx.ellipse(0, 0, radiusX, radiusY, 0, startAngle, endAngle, counterclockwise);
     }
 
     // create a complete circle
@@ -111,16 +109,16 @@ export default class CanvasPath extends CanvasComponent {
     }
 
     // non-zero
-    public isPointInPath(x: number, y: number): boolean {
+    public inPath(x: number, y: number): boolean {
         return this.ctx.isPointInPath(x, y);
     }
 
     // even-odd
-    public isPointInPathEvenOdd(x: number, y: number): boolean {
+    public inPathEvenOdd(x: number, y: number): boolean {
         return this.ctx.isPointInPath(x, y, 'evenodd');
     }
 
-    public isPointInStroke(x: number, y: number): boolean {
+    public inStroke(x: number, y: number): boolean {
         return this.ctx.isPointInStroke(x, y);
     }
 
