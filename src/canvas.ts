@@ -19,38 +19,79 @@ type tCanvasTranslateOption = 'center' | 'top' | 'bottom' | 'left' | 'right' | '
 
 export default class Canvas {
 
+    public static DEFAULT_WIDTH: number = 300;
+    public static DEFAULT_HEIGHT: number = 150;
+
     public ctx: CanvasRenderingContext2D;
     private canvas: HTMLCanvasElement;
 
+    // @ts-ignore
     private _path: CanvasPath;
+
+    // @ts-ignore
     private _text: CanvasText;
+
+    // @ts-ignore
     private _font: CanvasFont;
+
+    // @ts-ignore
     private _color: CanvasColor;
+
+    // @ts-ignore
     private _image: CanvasImage;
+
+    // @ts-ignore
     private _filter: CanvasFilter;
+
+    // @ts-ignore
     private _shadow: CanvasShadow;
+
+    // @ts-ignore
     private _line: CanvasLine;
+
+    // @ts-ignore
     private _imageData: CanvasImageData;
+
+    // @ts-ignore
     private _composite: CanvasCompositeOperation;
+
+    // @ts-ignore
     private _transform: CanvasTransform;
 
-    public constructor(id: string | null = null, width: number = 300, height: number = 150) {
-        this.canvas = this.loadCanvas(id);
-        this.canvas.width = width;
-        this.canvas.height = height;
-        this.ctx = this.canvas.getContext('2d')!;
-        this._path = new CanvasPath(this.ctx);
-        this._text = new CanvasText(this.ctx);
-        this._font = new CanvasFont(this.ctx);
-        this._color = new CanvasColor(this.ctx);
-        this._image = new CanvasImage(this.ctx);
-        this._filter = new CanvasFilter(this.ctx);
-        this._shadow = new CanvasShadow(this.ctx);
-        this._line = new CanvasLine(this.ctx);
-        this._imageData = new CanvasImageData(this.ctx);
-        this._composite = new CanvasCompositeOperation(this.ctx);
-        this._transform = new CanvasTransform(this.ctx);
+    public constructor(atts: {
+        id?: string; // optional id of an existing HTMLCanvas element in document
+        element?: HTMLCanvasElement; // optional existing HTMLCanvas element in document
+        width?: number;
+        height?: number;
+        alpha?: boolean;
+        color?: string; // optional background color
+        parent?: HTMLElement; // optional parent HTML element to append the canvas to
+    }) {
+
+        // load canvas element into instance
+        this.canvas = this.makeCanvas(atts.element, atts.id);
+
+        // load accesible content message to the canvas tag
+        this.addAccessibleContent();
+
+        // set width and height
+        this.setDimensions(atts.width, atts.height);
+
+        // set optional background color
+        if (atts.color) this.backgroundColor(atts.color);
+
+        // alpha ?: boolean;
+        this.ctx = this.makeContext(atts.alpha);
+
+        // load all of the class dependencies
+        this.loadComponents();
+
+        // optional HTML element to append the canvas to
+        if (atts.parent) this.appendTo(atts.parent);
+
     }
+
+
 
     public get width(): number {
         return this.canvas.width;
@@ -117,6 +158,11 @@ export default class Canvas {
 
     public appendTo(parent: HTMLElement): void {
         parent.appendChild(this.canvas);
+    }
+
+    // set background color style on canvas element
+    public backgroundColor(color: string): void {
+        this.canvas.style.backgroundColor = color;
     }
 
     // low | medium | high
@@ -226,32 +272,62 @@ export default class Canvas {
         this.ctx.rotate(radians);
     }
 
-    public degrees(degrees: number): void {
+    public rotateDegrees(degrees: number): void {
         const radians = degrees * Math.PI / 180;
         this.rotate(radians);
     }
 
-    public turns(turns: number): void {
+    public rotateTurns(turns: number): void {
         const radians = Math.PI * turns;
         this.rotate(radians);
     }
 
-    // load an html canvas into this.canvas property
-    private loadCanvas(id: string | null): HTMLCanvasElement {
-        if (this.htmlElementExists(id) && id) {
-            return <HTMLCanvasElement>document.getElementById(id);
-        }
-        else {
-            return document.createElement('canvas');
+    // add message to display to user in place of the missing canvas element
+    private addAccessibleContent(): void {
+        if (this.canvas) {
+            const message = 'Unfortunately your device cannot display the content correctly';
+            const p = document.createElement('p');
+            p.innerText = message;
+            this.canvas.appendChild(p);
         }
     }
 
-    // test that a canvas with id = canvas exists in index.html
-    private htmlElementExists(id: string | null): boolean {
-        if (!id) {
-            return false;
-        }
-        return document.getElementById(id) !== null;
+    private makeCanvas(element?: HTMLCanvasElement, id?: string): HTMLCanvasElement {
+        let canvas: HTMLCanvasElement;
+        if (element) canvas = element;
+        else if (
+            id
+            && document.getElementById(id)
+            && document.getElementById(id)?.nodeName === 'CANVAS'
+        ) { canvas = <HTMLCanvasElement>document.getElementById(id) }
+        else canvas = document.createElement('canvas');
+        return canvas;
+    }
+
+    private setDimensions(width?: number, height?: number): void {
+        this.canvas.width = (width) ? width : Canvas.DEFAULT_WIDTH;
+        this.canvas.height = (height) ? height : Canvas.DEFAULT_HEIGHT;
+    }
+
+    private makeContext(alpha?: boolean): CanvasRenderingContext2D {
+        let ctx: CanvasRenderingContext2D;
+        if (alpha) ctx = this.canvas.getContext('2d', { alpha: alpha })!;
+        else ctx = this.canvas.getContext('2d', { alpha: false })!;
+        return ctx;
+    }
+
+    private loadComponents(): void {
+        this._path = new CanvasPath(this.ctx);
+        this._text = new CanvasText(this.ctx);
+        this._font = new CanvasFont(this.ctx);
+        this._color = new CanvasColor(this.ctx);
+        this._image = new CanvasImage(this.ctx);
+        this._filter = new CanvasFilter(this.ctx);
+        this._shadow = new CanvasShadow(this.ctx);
+        this._line = new CanvasLine(this.ctx);
+        this._imageData = new CanvasImageData(this.ctx);
+        this._composite = new CanvasCompositeOperation(this.ctx);
+        this._transform = new CanvasTransform(this.ctx);
     }
 
 }
