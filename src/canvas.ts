@@ -287,10 +287,12 @@ export default class Canvas {
     // add message to display to user in place of the missing canvas element
     private addAccessibleContent(): void {
         if (this.canvas) {
+            this.canvas.setAttribute('role', 'presenation');
             const message = 'Unfortunately your device cannot display the content correctly';
             const p = document.createElement('p');
             p.innerText = message;
             this.canvas.appendChild(p);
+
         }
     }
 

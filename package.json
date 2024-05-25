@@ -1,12 +1,9 @@
 {
   "name": "@brendangooch/canvas",
   "version": "1.0.0",
-  "description": "a cleaner implementation of the Canvas API",
+  "description": "a cleaner implementation of the HTML Canvas API",
   "author": "B Gooch <brendangooch@gmail.com>",
   "license": "MIT",
-  "os": [
-    "linux"
-  ],
   "scripts": {
     "test": "clear && npm run build && NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --verbose",
     "clear": "rm -rf lib",
