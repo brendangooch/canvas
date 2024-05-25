@@ -19,9 +19,6 @@ type tCanvasTranslateOption = 'center' | 'top' | 'bottom' | 'left' | 'right' | '
 
 export default class Canvas {
 
-    public static WIDTH: number = 300; // chrome default
-    public static HEIGHT: number = 150; // chrome default
-
     public ctx: CanvasRenderingContext2D;
     private canvas: HTMLCanvasElement;
 
@@ -37,10 +34,11 @@ export default class Canvas {
     private _composite: CanvasCompositeOperation;
     private _transform: CanvasTransform;
 
-    public constructor(id: string | null = null) {
+    public constructor(id: string | null = null, width: number = 300, height: number = 150) {
         this.canvas = this.loadCanvas(id);
+        this.canvas.width = width;
+        this.canvas.height = height;
         this.ctx = this.canvas.getContext('2d')!;
-        this.setCanvasDimensions();
         this._path = new CanvasPath(this.ctx);
         this._text = new CanvasText(this.ctx);
         this._font = new CanvasFont(this.ctx);
@@ -228,6 +226,16 @@ export default class Canvas {
         this.ctx.rotate(radians);
     }
 
+    public degrees(degrees: number): void {
+        const radians = degrees * Math.PI / 180;
+        this.rotate(radians);
+    }
+
+    public turns(turns: number): void {
+        const radians = Math.PI * turns;
+        this.rotate(radians);
+    }
+
     // load an html canvas into this.canvas property
     private loadCanvas(id: string | null): HTMLCanvasElement {
         if (this.htmlElementExists(id) && id) {
@@ -245,13 +253,5 @@ export default class Canvas {
         }
         return document.getElementById(id) !== null;
     }
-
-    // setDimensions()
-    private setCanvasDimensions(): void {
-        this.canvas.width = Canvas.WIDTH;
-        this.canvas.height = Canvas.HEIGHT;
-    }
-
-
 
 }

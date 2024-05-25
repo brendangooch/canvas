@@ -7,18 +7,20 @@ import Canvas from '../lib/canvas.js';
 
 function testGetDimensions() {
     describe('returns correct dimensions', () => {
-        const canvas = new Canvas();
+        const width = 500;
+        const height = 500;
+        const canvas = new Canvas(null, width, height);
         test('get width() returns correct width', () => {
-            expect(canvas.width).toBe(Canvas.WIDTH);
+            expect(canvas.width).toBe(width);
         });
 
         test('get height() returns correct height', () => {
-            expect(canvas.height).toBe(Canvas.HEIGHT);
+            expect(canvas.height).toBe(height);
         });
 
         test('get center() returns correct x and y coordinates', () => {
-            expect(canvas.center.x).toBe(Canvas.WIDTH / 2);
-            expect(canvas.center.y).toBe(Canvas.HEIGHT / 2);
+            expect(canvas.center.x).toBe(width / 2);
+            expect(canvas.center.y).toBe(height / 2);
         });
     });
 }
