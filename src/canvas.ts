@@ -276,7 +276,7 @@ export default class Canvas {
     }
 
     public rotateTurns(turns: number): void {
-        const radians = Math.PI * turns;
+        const radians = (Math.PI * 2) * turns;
         this.rotate(radians);
     }
 
