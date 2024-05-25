@@ -22,13 +22,11 @@ export default class CanvasColor extends CanvasComponent {
 
     // fillStyle
     public fill(color: tCanvasColorType): void {
-        this.gradient = null;
         this.ctx.fillStyle = color;
     }
 
     // strokeStyle
     public stroke(color: tCanvasColorType): void {
-        this.gradient = null;
         this.ctx.strokeStyle = color;
     }
 
@@ -59,6 +57,7 @@ export default class CanvasColor extends CanvasComponent {
 
     public applyGradient(which: tCanvasStrokeOrFill): void {
         if (this.gradient) this.change(which, this.gradient);
+        this.gradient = null;
     }
 
     // createPattern()
