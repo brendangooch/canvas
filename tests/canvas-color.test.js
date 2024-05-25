@@ -7,7 +7,7 @@ import Canvas from '../lib/canvas.js';
 
 function testFill() {
     describe('fill()', () => {
-        const canvas = new Canvas();
+        const canvas = new Canvas({});
         canvas.color.fill('#ff0000');
         test('sets correct color on context.fillStyle', () => {
             expect(canvas.ctx.fillStyle).toBe('#ff0000');
@@ -17,7 +17,7 @@ function testFill() {
 
 function testStroke() {
     describe('stroke()', () => {
-        const canvas = new Canvas();
+        const canvas = new Canvas({});
         canvas.color.stroke('#ff0000');
         test('sets correct color on context.strokeStyle', () => {
             expect(canvas.ctx.strokeStyle).toBe('#ff0000');
@@ -27,7 +27,7 @@ function testStroke() {
 
 function testChange() {
     describe('change()', () => {
-        const canvas = new Canvas();
+        const canvas = new Canvas({});
         canvas.color.change('fill', '#ff0000');
         test('sets correct color on context.fillStyle', () => {
             expect(canvas.ctx.fillStyle).toBe('#ff0000');
@@ -41,7 +41,7 @@ function testChange() {
 
 function testReset() {
     describe('reset()', () => {
-        const canvas = new Canvas();
+        const canvas = new Canvas({});
         canvas.color.fill('#ff0000');
         canvas.color.stroke('#ff0000');
         canvas.color.reset();

@@ -8,7 +8,7 @@ import Canvas from '../lib/canvas.js';
 function testReset() {
     describe('reset()', () => {
         test('sets all font properties back to default', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.setAll({
                 size: 100,
                 families: ['times', 'arial'],
@@ -32,7 +32,7 @@ function testSetAll() {
 
                 // style weight size/height family
                 test('sets ctx.font to "italic bold 100px times,arial,sans-serif"', () => {
-                    const canvas = new Canvas();
+                    const canvas = new Canvas({});
                     canvas.font.setAll({
                         size: 100,
                         families: ['times', 'arial'],
@@ -51,7 +51,7 @@ function testSetAll() {
             describe('other font props set correctly', () => {
 
                 test('sets ctx.fontKerning to "normal"', () => {
-                    const canvas = new Canvas();
+                    const canvas = new Canvas({});
                     canvas.font.setAll({
                         size: 100,
                         families: ['times', 'arial'],
@@ -65,7 +65,7 @@ function testSetAll() {
                 });
 
                 test('sets ctx.fontStretch to "condensed"', () => {
-                    const canvas = new Canvas();
+                    const canvas = new Canvas({});
                     canvas.font.setAll({
                         size: 100,
                         families: ['times', 'arial'],
@@ -79,7 +79,7 @@ function testSetAll() {
                 });
 
                 test('sets ctx.fontVariantCaps to "small-caps"', () => {
-                    const canvas = new Canvas();
+                    const canvas = new Canvas({});
                     canvas.font.setAll({
                         size: 100,
                         families: ['times', 'arial'],
@@ -108,7 +108,7 @@ function testSetAll() {
 
                 // style weight size/height family
                 test('sets ctx.font to "italic bold 100px times,arial,sans-serif"', () => {
-                    const canvas = new Canvas();
+                    const canvas = new Canvas({});
                     canvas.font.setAll({
                         size: 100,
                         families: ['times', 'arial'],
@@ -120,7 +120,7 @@ function testSetAll() {
 
                 // style weight size/height family
                 test('sets ctx.font to "italic 100px times,arial,sans-serif"', () => {
-                    const canvas = new Canvas();
+                    const canvas = new Canvas({});
                     canvas.font.setAll({
                         size: 100,
                         families: ['times', 'arial'],
@@ -131,7 +131,7 @@ function testSetAll() {
 
                 // style weight size/height family
                 test('sets ctx.font to "bold 100px times,arial,sans-serif"', () => {
-                    const canvas = new Canvas();
+                    const canvas = new Canvas({});
                     canvas.font.setAll({
                         size: 100,
                         families: ['times', 'arial'],
@@ -142,7 +142,7 @@ function testSetAll() {
 
                 // style weight size/height family
                 test('sets ctx.font to "100px times,arial,sans-serif"', () => {
-                    const canvas = new Canvas();
+                    const canvas = new Canvas({});
                     canvas.font.setAll({
                         size: 100,
                         families: ['times', 'arial']
@@ -152,7 +152,7 @@ function testSetAll() {
 
                 // style weight size/height family
                 test('sets ctx.font to "100px sans-serif"', () => {
-                    const canvas = new Canvas();
+                    const canvas = new Canvas({});
                     canvas.font.setAll({
                         size: 100
                     });
@@ -161,7 +161,7 @@ function testSetAll() {
 
                 // style weight size/height family
                 test('sets ctx.font to "10px times,arial,sans-serif"', () => {
-                    const canvas = new Canvas();
+                    const canvas = new Canvas({});
                     canvas.font.setAll({
                         families: ['times', 'arial']
                     });
@@ -173,7 +173,7 @@ function testSetAll() {
             describe('other font props set correctly', () => {
 
                 test('sets ctx.fontKerning to "normal"', () => {
-                    const canvas = new Canvas();
+                    const canvas = new Canvas({});
                     canvas.font.setAll({
                         kerning: 'normal'
                     });
@@ -181,7 +181,7 @@ function testSetAll() {
                 });
 
                 test('sets ctx.fontStretch to "condensed"', () => {
-                    const canvas = new Canvas();
+                    const canvas = new Canvas({});
                     canvas.font.setAll({
                         stretch: 'condensed'
                     });
@@ -189,7 +189,7 @@ function testSetAll() {
                 });
 
                 test('sets ctx.fontVariantCaps to "small-caps"', () => {
-                    const canvas = new Canvas();
+                    const canvas = new Canvas({});
                     canvas.font.setAll({
                         variantCaps: 'small-caps'
                     });
@@ -207,12 +207,12 @@ function testSetAll() {
 function testSize() {
     describe('size()', () => {
         test('sets ctx.font to "48px sans-serif"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.size(48);
             expect(canvas.ctx.font).toBe('48px sans-serif');
         });
         test('cannot set a size less than 1', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.size(0);
             expect(canvas.ctx.font).toBe('10px sans-serif');
             canvas.font.size(0.9);
@@ -226,18 +226,18 @@ function testSize() {
 function testAddFamily() {
     describe('addFamily()', () => {
         test('setx ctx.font to "10px times,sans-serif"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.addFamily('times');
             expect(canvas.ctx.font).toBe('10px times,sans-serif');
         });
         test('setx ctx.font to "10px times,arial,sans-serif"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.addFamily('arial');
             canvas.font.addFamily('times');
             expect(canvas.ctx.font).toBe('10px times,arial,sans-serif');
         });
         test('CANNOT add a font already added', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.addFamily('times');
             canvas.font.addFamily('times');
             expect(canvas.ctx.font).toBe('10px times,sans-serif');
@@ -250,13 +250,13 @@ function testStyle() {
     describe('style()', () => {
 
         test('setx ctx.font to "italic 10px sans-serif"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.style('italic');
             expect(canvas.ctx.font).toBe('italic 10px sans-serif');
         });
 
         test('setting to normal does not alter ctx.font (default)', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.style('normal');
             expect(canvas.ctx.font).toBe('10px sans-serif');
         });
@@ -268,13 +268,13 @@ function testWeight() {
     describe('weight()', () => {
 
         test('setx ctx.font to "bold 10px sans-serif"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.weight('bold');
             expect(canvas.ctx.font).toBe('bold 10px sans-serif');
         });
 
         test('setting to normal does not alter ctx.font (default)', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.weight('normal');
             expect(canvas.ctx.font).toBe('10px sans-serif');
         });
@@ -285,7 +285,7 @@ function testWeight() {
 function testKerning() {
     describe('kerning()', () => {
         test('setx ctx.fontKerning to "normal"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.kerning('normal');
             expect(canvas.ctx.fontKerning).toBe('normal');
         });
@@ -295,7 +295,7 @@ function testKerning() {
 function testNormalKerning() {
     describe('normalKerning()', () => {
         test('setx ctx.fontKerning to "normal"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.normalKerning();
             expect(canvas.ctx.fontKerning).toBe('normal');
         });
@@ -306,7 +306,7 @@ function testNormalKerning() {
 function testAutoKerning() {
     describe('autoKerning()', () => {
         test('setx ctx.fontKerning to "auto"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.normalKerning();
             canvas.font.autoKerning();
             expect(canvas.ctx.fontKerning).toBe('auto');
@@ -317,7 +317,7 @@ function testAutoKerning() {
 function testNoKerning() {
     describe('noKerning()', () => {
         test('setx ctx.fontKerning to "none"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.noKerning();
             expect(canvas.ctx.fontKerning).toBe('none');
         });
@@ -327,7 +327,7 @@ function testNoKerning() {
 function testStretch() {
     describe('stretch()', () => {
         test('sets ctx.fontStretch to "ultra-condensed"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.stretch('ultra-condensed');
             expect(canvas.ctx.fontStretch).toBe('ultra-condensed');
         });
@@ -337,7 +337,7 @@ function testStretch() {
 function testNormalStretch() {
     describe('normalStretch()', () => {
         test('sets ctx.fontStretch to "normal"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.normalStretch();
             expect(canvas.ctx.fontStretch).toBe('normal');
         });
@@ -347,7 +347,7 @@ function testNormalStretch() {
 function testUltraCondensed() {
     describe('ultraCondensed()', () => {
         test('sets ctx.fontStretch to "ultra-condensed"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.ultraCondensed();
             expect(canvas.ctx.fontStretch).toBe('ultra-condensed');
         });
@@ -357,7 +357,7 @@ function testUltraCondensed() {
 function testExtraCondensed() {
     describe('extraCondensed()', () => {
         test('sets ctx.fontStretch to "extra-condensed"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.extraCondensed();
             expect(canvas.ctx.fontStretch).toBe('extra-condensed');
         });
@@ -367,7 +367,7 @@ function testExtraCondensed() {
 function testCondensed() {
     describe('condensed()', () => {
         test('sets ctx.fontStretch to "condensed"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.condensed();
             expect(canvas.ctx.fontStretch).toBe('condensed');
         });
@@ -377,7 +377,7 @@ function testCondensed() {
 function testSemiCondensed() {
     describe('semiCondensed()', () => {
         test('sets ctx.fontStretch to "semi-condensed"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.semiCondensed();
             expect(canvas.ctx.fontStretch).toBe('semi-condensed');
         });
@@ -387,7 +387,7 @@ function testSemiCondensed() {
 function testSemiExpanded() {
     describe('semiExpanded()', () => {
         test('sets ctx.fontStretch to "semi-expanded"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.semiExpanded();
             expect(canvas.ctx.fontStretch).toBe('semi-expanded');
         });
@@ -397,7 +397,7 @@ function testSemiExpanded() {
 function testExpanded() {
     describe('expanded()', () => {
         test('sets ctx.fontStretch to "expanded"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.expanded();
             expect(canvas.ctx.fontStretch).toBe('expanded');
         });
@@ -407,7 +407,7 @@ function testExpanded() {
 function testExtraExpanded() {
     describe('extraExpanded()', () => {
         test('sets ctx.fontStretch to "extra-expanded"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.extraExpanded();
             expect(canvas.ctx.fontStretch).toBe('extra-expanded');
         });
@@ -417,7 +417,7 @@ function testExtraExpanded() {
 function testUltraExpanded() {
     describe('ultraExpanded()', () => {
         test('sets ctx.fontStretch to "ultra-expanded"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.ultraExpanded();
             expect(canvas.ctx.fontStretch).toBe('ultra-expanded');
         });
@@ -427,7 +427,7 @@ function testUltraExpanded() {
 function testVariantCaps() {
     describe('variantCaps()', () => {
         test('sets ctx.fontVariantCaps to "small-caps"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.variantCaps('small-caps');
             expect(canvas.ctx.fontVariantCaps).toBe('small-caps');
         });
@@ -437,7 +437,7 @@ function testVariantCaps() {
 function testNormalCaps() {
     describe('normalCaps()', () => {
         test('sets ctx.fontVariantCaps to "normal"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.normalCaps();
             expect(canvas.ctx.fontVariantCaps).toBe('normal');
         });
@@ -447,7 +447,7 @@ function testNormalCaps() {
 function testSmallCaps() {
     describe('smallCaps()', () => {
         test('sets ctx.fontVariantCaps to "small-caps"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.smallCaps();
             expect(canvas.ctx.fontVariantCaps).toBe('small-caps');
         });
@@ -457,7 +457,7 @@ function testSmallCaps() {
 function testAllSmallCaps() {
     describe('allSmallCaps()', () => {
         test('sets ctx.fontVariantCaps to "all-small-caps"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.allSmallCaps();
             expect(canvas.ctx.fontVariantCaps).toBe('all-small-caps');
         });
@@ -467,7 +467,7 @@ function testAllSmallCaps() {
 function testPetiteCaps() {
     describe('petiteCaps()', () => {
         test('sets ctx.fontVariantCaps to "petite-caps"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.petiteCaps();
             expect(canvas.ctx.fontVariantCaps).toBe('petite-caps');
         });
@@ -477,7 +477,7 @@ function testPetiteCaps() {
 function testAllPetiteCaps() {
     describe('allPetiteCaps()', () => {
         test('sets ctx.fontVariantCaps to "all-petite-caps"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.allPetiteCaps();
             expect(canvas.ctx.fontVariantCaps).toBe('all-petite-caps');
         });
@@ -487,7 +487,7 @@ function testAllPetiteCaps() {
 function testUnicase() {
     describe('unicase()', () => {
         test('sets ctx.fontVariantCaps to "unicase"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.unicase();
             expect(canvas.ctx.fontVariantCaps).toBe('unicase');
         });
@@ -497,7 +497,7 @@ function testUnicase() {
 function testTitlingCaps() {
     describe('titlingCaps()', () => {
         test('sets ctx.fontVariantCaps to "titling-caps"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.font.titlingCaps();
             expect(canvas.ctx.fontVariantCaps).toBe('titling-caps');
         });

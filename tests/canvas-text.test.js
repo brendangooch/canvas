@@ -10,7 +10,7 @@ function testSetAll() {
         describe('sets ALL text properties in one command; each property set correctly', () => {
 
             test('sets ctx.textAlign to "center"', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.text.setAll({
                     align: 'center',
                     baseline: 'middle',
@@ -23,7 +23,7 @@ function testSetAll() {
             });
 
             test('sets ctx.textBaseline to "middle"', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.text.setAll({
                     align: 'center',
                     baseline: 'middle',
@@ -36,7 +36,7 @@ function testSetAll() {
             });
 
             test('sets ctx.textRendering to "geometricPrecision"', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.text.setAll({
                     align: 'center',
                     baseline: 'middle',
@@ -49,7 +49,7 @@ function testSetAll() {
             });
 
             test('sets ctx.wordSpacing to 20', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.text.setAll({
                     align: 'center',
                     baseline: 'middle',
@@ -62,7 +62,7 @@ function testSetAll() {
             });
 
             test('sets ctx.letterSpacing to 30', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.text.setAll({
                     align: 'center',
                     baseline: 'middle',
@@ -75,7 +75,7 @@ function testSetAll() {
             });
 
             test('sets ctx.direction to "rtl"', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.text.setAll({
                     align: 'center',
                     baseline: 'middle',
@@ -92,7 +92,7 @@ function testSetAll() {
         describe('can set a single property; each property set correctly', () => {
 
             test('sets ctx.textAlign to "center"', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.text.setAll({
                     align: 'center'
                 });
@@ -100,7 +100,7 @@ function testSetAll() {
             });
 
             test('sets ctx.textBaseline to "middle"', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.text.setAll({
                     baseline: 'middle'
                 });
@@ -108,7 +108,7 @@ function testSetAll() {
             });
 
             test('sets ctx.textRendering to "geometricPrecision"', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.text.setAll({
                     rendering: 'geometricPrecision'
                 });
@@ -116,7 +116,7 @@ function testSetAll() {
             });
 
             test('sets ctx.wordSpacing to 20', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.text.setAll({
                     wordSpacing: 20
                 });
@@ -124,7 +124,7 @@ function testSetAll() {
             });
 
             test('sets ctx.letterSpacing to 30', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.text.setAll({
                     letterSpacing: 30
                 });
@@ -132,7 +132,7 @@ function testSetAll() {
             });
 
             test('sets ctx.direction to "rtl"', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.text.setAll({
                     direction: 'rtl'
                 });
@@ -148,7 +148,7 @@ function testSetAll() {
 function testAlign() {
     describe('align()', () => {
         test('sets canvas.ctx.textAlign = center', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.align('center');
             expect(canvas.ctx.textAlign).toBe('center');
         });
@@ -159,7 +159,7 @@ function testAlign() {
 function testCenter() {
     describe('center()', () => {
         test('sets canvas.ctx.textAlign = center', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.center();
             expect(canvas.ctx.textAlign).toBe('center');
         });
@@ -170,7 +170,7 @@ function testCenter() {
 function testEnd() {
     describe('end()', () => {
         test('sets canvas.ctx.textAlign = end', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.end();
             expect(canvas.ctx.textAlign).toBe('end');
         });
@@ -181,7 +181,7 @@ function testEnd() {
 function testLeft() {
     describe('left()', () => {
         test('sets canvas.ctx.textAlign = left', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.left();
             expect(canvas.ctx.textAlign).toBe('left');
         });
@@ -192,7 +192,7 @@ function testLeft() {
 function testRight() {
     describe('right()', () => {
         test('sets canvas.ctx.textAlign = right', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.right();
             expect(canvas.ctx.textAlign).toBe('right');
         });
@@ -203,7 +203,7 @@ function testRight() {
 function testStart() {
     describe('start()', () => {
         test('sets canvas.ctx.textAlign = start', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.start();
             expect(canvas.ctx.textAlign).toBe('start');
         });
@@ -214,7 +214,7 @@ function testStart() {
 function testBaseline() {
     describe('baseline()', () => {
         test('sets canvas.ctx.textBaseAlign = middle', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.baseline('middle');
             expect(canvas.ctx.textBaseline).toBe('middle');
         });
@@ -225,7 +225,7 @@ function testBaseline() {
 function testAlphabetic() {
     describe('alphabetic()', () => {
         test('sets canvas.ctx.textBaseAlign = alphabetic', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.alphabetic();
             expect(canvas.ctx.textBaseline).toBe('alphabetic');
         });
@@ -236,7 +236,7 @@ function testAlphabetic() {
 function testBottom() {
     describe('bottom()', () => {
         test('sets canvas.ctx.textBaseAlign = bottom', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.bottom();
             expect(canvas.ctx.textBaseline).toBe('bottom');
         });
@@ -247,7 +247,7 @@ function testBottom() {
 function testHanging() {
     describe('hanging()', () => {
         test('sets canvas.ctx.textBaseAlign = hanging', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.hanging();
             expect(canvas.ctx.textBaseline).toBe('hanging');
         });
@@ -258,7 +258,7 @@ function testHanging() {
 function testIdeographic() {
     describe('ideographic()', () => {
         test('sets canvas.ctx.textBaseAlign = ideographic', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.ideographic();
             expect(canvas.ctx.textBaseline).toBe('ideographic');
         });
@@ -269,7 +269,7 @@ function testIdeographic() {
 function testMiddle() {
     describe('middle()', () => {
         test('sets canvas.ctx.textBaseAlign = middle', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.middle();
             expect(canvas.ctx.textBaseline).toBe('middle');
         });
@@ -280,7 +280,7 @@ function testMiddle() {
 function testTop() {
     describe('top()', () => {
         test('sets canvas.ctx.textBaseAlign = top', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.top();
             expect(canvas.ctx.textBaseline).toBe('top');
         });
@@ -291,22 +291,22 @@ function testTop() {
 function testRendering() {
     describe('rendering()', () => {
         test('sets ctx.textRendering to "auto"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.rendering('auto');
             expect(canvas.ctx.textRendering).toBe('auto');
         });
         test('sets ctx.textRendering to "geometricPrecision"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.rendering('geometricPrecision');
             expect(canvas.ctx.textRendering).toBe('geometricPrecision');
         });
         test('sets ctx.textRendering to "optimizeLegibility"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.rendering('optimizeLegibility');
             expect(canvas.ctx.textRendering).toBe('optimizeLegibility');
         });
         test('sets ctx.textRendering to "optimizeSpeed"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.rendering('optimizeSpeed');
             expect(canvas.ctx.textRendering).toBe('optimizeSpeed');
         });
@@ -316,7 +316,7 @@ function testRendering() {
 function testAuto() {
     describe('auto()', () => {
         test('sets ctx.textRendering to "auto"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.auto();
             expect(canvas.ctx.textRendering).toBe('auto');
         });
@@ -326,7 +326,7 @@ function testAuto() {
 function testPrecise() {
     describe('precise()', () => {
         test('sets ctx.textRendering to "geometricPrecision"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.precise();
             expect(canvas.ctx.textRendering).toBe('geometricPrecision');
         });
@@ -336,12 +336,12 @@ function testPrecise() {
 function testOptimize() {
     describe('optimise()', () => {
         test('sets ctx.textRendering to "optimizeLegibility"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.optimize('legibility');
             expect(canvas.ctx.textRendering).toBe('optimizeLegibility');
         });
         test('sets ctx.textRendering to "optimizeSpeed"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.optimize('speed');
             expect(canvas.ctx.textRendering).toBe('optimizeSpeed');
         });
@@ -352,7 +352,7 @@ function testOptimize() {
 function testWordSpacing() {
     describe('wordSpacing', () => {
         test('sets ctx.wordSpacing to "10px"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.wordSpacing(10);
             expect(canvas.ctx.wordSpacing).toBe('10px');
         });
@@ -363,7 +363,7 @@ function testWordSpacing() {
 function testLetterSpacing() {
     describe('letterSpacing', () => {
         test('sets ctx.letterSpacing to "10px"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.letterSpacing(10);
             expect(canvas.ctx.letterSpacing).toBe('10px');
         });
@@ -374,7 +374,7 @@ function testLetterSpacing() {
 function testMeasure() {
     describe('measure()', () => {
         test('returns exact same object as ctx.measureText', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             expect(JSON.stringify(canvas.text.measure())).toBe(JSON.stringify(canvas.ctx.measureText()));
         });
     });
@@ -383,7 +383,7 @@ function testMeasure() {
 function testDirection() {
     describe('direction()', () => {
         test('sets ctx.direction to "ltr"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.direction('ltr');
             expect(canvas.ctx.direction).toBe('ltr');
         });
@@ -394,7 +394,7 @@ function testDirection() {
 function testRtl() {
     describe('rtl()', () => {
         test('sets ctx.direction to "rtl"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.rtl();
             expect(canvas.ctx.direction).toBe('rtl');
         });
@@ -405,7 +405,7 @@ function testRtl() {
 function testLtr() {
     describe('ltr()', () => {
         test('sets ctx.direction to "ltr"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.ltr();
             expect(canvas.ctx.direction).toBe('ltr');
         });
@@ -416,7 +416,7 @@ function testLtr() {
 function testInherit() {
     describe('inherit()', () => {
         test('sets ctx.direction to "inherit"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.text.inherit();
             expect(canvas.ctx.direction).toBe('inherit');
         });

@@ -12,7 +12,7 @@ function testSetAll() {
 
             // thickness ?: number;
             test('sets ctx.lineWidth to 100', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.line.setAll({
                     thickness: 100,
                     cap: 'round',
@@ -26,7 +26,7 @@ function testSetAll() {
 
             // cap ?: CanvasLineCap;
             test('sets ctx.lineCap to "round"', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.line.setAll({
                     thickness: 100,
                     cap: 'round',
@@ -43,7 +43,7 @@ function testSetAll() {
 
             // dashOffset ?: number;
             test('sets ctx.lineDashOffset to 50', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.line.setAll({
                     thickness: 100,
                     cap: 'round',
@@ -57,7 +57,7 @@ function testSetAll() {
 
             // join ?: CanvasLineJoin;
             test('sets ctx.lineJoin to "bevel"', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.line.setAll({
                     thickness: 100,
                     cap: 'round',
@@ -71,7 +71,7 @@ function testSetAll() {
 
             // miterLimit ?: number;
             test('sets ctx.miterLimit to 25', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.line.setAll({
                     thickness: 100,
                     cap: 'round',
@@ -89,7 +89,7 @@ function testSetAll() {
 
             // thickness ?: number;
             test('sets ctx.lineWidth to 100', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.line.setAll({
                     thickness: 100
                 });
@@ -98,7 +98,7 @@ function testSetAll() {
 
             // cap ?: CanvasLineCap;
             test('sets ctx.lineCap to "round"', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.line.setAll({
                     cap: 'round'
                 });
@@ -110,7 +110,7 @@ function testSetAll() {
 
             // dashOffset ?: number;
             test('sets ctx.lineDashOffset to 50', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.line.setAll({
                     dashPattern: [10, 20, 30],
                     dashOffset: 50
@@ -120,7 +120,7 @@ function testSetAll() {
 
             // join ?: CanvasLineJoin;
             test('sets ctx.lineJoin to "bevel"', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.line.setAll({
                     join: 'bevel'
                 });
@@ -129,7 +129,7 @@ function testSetAll() {
 
             // miterLimit ?: number;
             test('sets ctx.miterLimit to 25', () => {
-                const canvas = new Canvas();
+                const canvas = new Canvas({});
                 canvas.line.setAll({
                     miterLimit: 25
                 });
@@ -146,18 +146,18 @@ function testSetAll() {
 function testThickness() {
     describe('width()', () => {
         test('sets ctx.lineWidth to 10', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.line.thickness(10);
             expect(canvas.ctx.lineWidth).toBe(10);
         });
         test('does not set ctx.lineWidth if value === 0', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             const current = canvas.ctx.lineWidth;
             canvas.line.thickness(0);
             expect(canvas.ctx.lineWidth).toBe(current);
         });
         test('does not set ctx.lineWidth if value < 0', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             const current = canvas.ctx.lineWidth;
             canvas.line.thickness(-1);
             expect(canvas.ctx.lineWidth).toBe(current);
@@ -169,7 +169,7 @@ function testThickness() {
 function testThin() {
     describe('thin()', () => {
         test('sets ctx.lineWidth to 2', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.line.thin();
             expect(canvas.ctx.lineWidth).toBe(2);
         });
@@ -180,7 +180,7 @@ function testThin() {
 function testMedium() {
     describe('medium()', () => {
         test('sets ctx.lineWidth to 10', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.line.medium();
             expect(canvas.ctx.lineWidth).toBe(10);
         });
@@ -191,7 +191,7 @@ function testMedium() {
 function testThick() {
     describe('thick()', () => {
         test('sets ctx.lineWidth to 25', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.line.thick();
             expect(canvas.ctx.lineWidth).toBe(25);
         });
@@ -201,7 +201,7 @@ function testThick() {
 function testCap() {
     describe('cap()', () => {
         test('sets ctx.lineCap to "round"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.line.cap('round');
             expect(canvas.ctx.lineCap).toBe('round');
         });
@@ -212,7 +212,7 @@ function testCap() {
 function testButtCap() {
     describe('buttCap()', () => {
         test('sets ctx.lineCap to "butt"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.line.buttCap();
             expect(canvas.ctx.lineCap).toBe('butt');
         });
@@ -223,7 +223,7 @@ function testButtCap() {
 function testRoundCap() {
     describe('roundCap()', () => {
         test('sets ctx.lineCap to "round"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.line.roundCap();
             expect(canvas.ctx.lineCap).toBe('round');
         });
@@ -234,7 +234,7 @@ function testRoundCap() {
 function testSquareCap() {
     describe('squareCap()', () => {
         test('sets ctx.lineCap to "square"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.line.squareCap();
             expect(canvas.ctx.lineCap).toBe('square');
         });
@@ -248,7 +248,7 @@ function testSquareCap() {
 function testDashOffset() {
     describe('dashOffset()', () => {
         test('sets ctx.lineDashOffset to 50', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.line.dashOffset(50);
             expect(canvas.ctx.lineDashOffset).toBe(50);
         });
@@ -258,7 +258,7 @@ function testDashOffset() {
 function testJoin() {
     describe('join()', () => {
         test('sets ctx.lineJoin to "round"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.line.join('round');
             expect(canvas.ctx.lineJoin).toBe('round');
         });
@@ -269,7 +269,7 @@ function testJoin() {
 function testRoundJoin() {
     describe('roundJoin()', () => {
         test('sets ctx.lineJoin to "round"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.line.roundJoin();
             expect(canvas.ctx.lineJoin).toBe('round');
         });
@@ -280,7 +280,7 @@ function testRoundJoin() {
 function testBevelJoin() {
     describe('bevelJoin()', () => {
         test('sets ctx.lineJoin to "bevel"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.line.bevelJoin();
             expect(canvas.ctx.lineJoin).toBe('bevel');
         });
@@ -291,7 +291,7 @@ function testBevelJoin() {
 function testMiterJoin() {
     describe('miterJoin()', () => {
         test('sets ctx.lineJoin to "miter"', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.line.miterJoin();
             expect(canvas.ctx.lineJoin).toBe('miter');
         });
@@ -302,18 +302,18 @@ function testMiterJoin() {
 function testMiterLimit() {
     describe('miterLimit()', () => {
         test('sets ctx.miterLimit to 1', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             canvas.line.miterLimit(1);
             expect(canvas.ctx.miterLimit).toBe(1);
         });
         test('DOES set ctx.miterLimit to 0 if value === 0', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             const current = canvas.ctx.miterLimit;
             canvas.line.miterLimit(0);
             expect(canvas.ctx.miterLimit).toBe(current);
         });
         test('does NOT set ctx.miterLimit if value < 0', () => {
-            const canvas = new Canvas();
+            const canvas = new Canvas({});
             const current = canvas.ctx.miterLimit;
             canvas.line.miterLimit(-1);
             expect(canvas.ctx.miterLimit).toBe(current);

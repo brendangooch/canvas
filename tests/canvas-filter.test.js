@@ -9,7 +9,7 @@ describe('CanvasFilter', () => {
 
     let canvas;
     beforeEach(() => {
-        canvas = new Canvas();
+        canvas = new Canvas({});
     });
 
     describe('reset()', () => {
