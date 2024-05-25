@@ -57,7 +57,6 @@ export default class CanvasColor extends CanvasComponent {
 
     public applyGradient(which: tCanvasStrokeOrFill): void {
         if (this.gradient) this.change(which, this.gradient);
-        this.gradient = null;
     }
 
     // createPattern()
