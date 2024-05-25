@@ -45,8 +45,8 @@ export default class CanvasColor extends CanvasComponent {
 
     // startAngle: turns [0-1]
     public conic(startAngle: number, x: number, y: number): void {
-        // check it's available on the client
-        if (typeof this.ctx.createConicGradient === 'function') {
+        // new feature (2023)
+        if (this.ctx.createConicGradient) {
             this.gradient = this.ctx.createConicGradient(startAngle * Math.PI * 2, x, y);
         }
     }

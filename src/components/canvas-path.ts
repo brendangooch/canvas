@@ -83,6 +83,7 @@ export default class CanvasPath extends CanvasComponent {
     }
 
     // rect() / roundRect() combined
+    // add optional rounded corners if ctx.roundRect available on client
     public rect(width: number, height: number, radii: number | number[] = 0): void {
         // roundRect available
         if (this.ctx.roundRect && radii) {
