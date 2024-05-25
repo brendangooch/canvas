@@ -95,8 +95,8 @@ export default class CanvasPath extends CanvasComponent {
     }
 
     // ellipse()
-    public ellipse(radiusX: number, radiusY: number, startAngle: number, endAngle: number, counterclockwise: boolean = false): void {
-        this.ctx.ellipse(0, 0, radiusX, radiusY, 0, startAngle, endAngle, counterclockwise);
+    public ellipse(radiusX: number, radiusY: number): void {
+        this.ctx.ellipse(0, 0, radiusX, radiusY, 0, 0, Math.PI * 2, false);
     }
 
     // create a complete circle
