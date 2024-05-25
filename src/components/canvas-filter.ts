@@ -24,7 +24,7 @@ export default class CanvasFilter extends CanvasComponent {
             color?: string;
         };
         grayscale?: number;
-        hueRotate: number;
+        hueRotate?: number;
         invert?: number;
         opacity?: number;
         saturate?: number;

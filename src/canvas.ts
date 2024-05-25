@@ -66,6 +66,7 @@ export default class Canvas {
         alpha?: boolean;
         color?: string; // optional background color
         parent?: HTMLElement; // optional parent HTML element to append the canvas to
+        smoothing?: tImageSmoothingQuality
     }) {
 
         // load canvas element into instance
@@ -85,6 +86,9 @@ export default class Canvas {
 
         // load all of the class dependencies
         this.loadComponents();
+
+        // optional image smoothing
+        if (atts.smoothing) this.enableSmoothing(atts.smoothing);
 
         // optional HTML element to append the canvas to
         if (atts.parent) this.appendTo(atts.parent);
