@@ -9,8 +9,9 @@ import CanvasComponent from "./canvas-component.js";
 export default class CanvasImage extends CanvasComponent {
 
     // drawImage(image, dx, dy)
-    public unchanged(image: HTMLImageElement): void {
-        this.ctx.drawImage(image, 0, 0);
+    public original(image: HTMLImageElement): void {
+        if (image.width && image.height) this.ctx.drawImage(image, -image.width / 2, -image.height / 2);
+        else this.ctx.drawImage(image, 0, 0);
     }
 
     // drawImage(image, dx, dy, dWidth, dHeight)
