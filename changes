@@ -42,3 +42,13 @@ added method chaining to each filter function method
 
 FULLY tested functionality visually in browser
 
+
+v2.1.0
+    removed CanvasFilter.dropShadow() method - very intensive and slows down animations
+        replaced with CanvasShadow component
+            does the same job much more efficiently
+            uses context.shadow... properties instead
+    added method chaining to Canvas class methods - translate(), rotate(), opacity(), scale()
+        creates a nicer interface for clients to use - set all common canvas settings in one line
+    
+    FULLY tested new functionality visually in browser

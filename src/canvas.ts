@@ -10,6 +10,7 @@ import CanvasFont from "./canvas-font.js";
 import CanvasText from "./canvas-text.js";
 import CanvasImage from "./canvas-image.js";
 import CanvasFilter from "./canvas-filter.js";
+import CanvasShadow from './canvas-shadow.js';
 
 
 export class Canvas {
@@ -29,6 +30,7 @@ export class Canvas {
     private _text: CanvasText;
     private _image: CanvasImage;
     private _filter: CanvasFilter;
+    private _shadow: CanvasShadow;
 
     public constructor(width: number, height: number, id: string = 'canvas') {
         if (document.getElementById(id) === undefined) throw new Error(`no canvas element with id="${id} exists in your html file"`);
@@ -47,6 +49,7 @@ export class Canvas {
         this._text = new CanvasText(this.ctx);
         this._image = new CanvasImage(this.ctx);
         this._filter = new CanvasFilter(this.ctx);
+        this._shadow = new CanvasShadow(this.ctx);
     }
 
     public get color(): CanvasColor { return this._color; }
@@ -56,6 +59,7 @@ export class Canvas {
     public get text(): CanvasText { return this._text; }
     public get image(): CanvasImage { return this._image; }
     public get filter(): CanvasFilter { return this._filter; }
+    public get shadow(): CanvasShadow { return this._shadow; }
 
     public clear(): void {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -68,22 +72,27 @@ export class Canvas {
         this.ctx.restore();
         this.font.reset();
         this.filter.reset();
+        this.shadow.reset();
     }
 
-    public translate(x: number, y: number): void {
+    public translate(x: number, y: number): Canvas {
         this.ctx.translate(x, y);
+        return this;
     }
 
-    public rotate(radians: number): void {
+    public rotate(radians: number): Canvas {
         this.ctx.rotate(radians);
+        return this;
     }
 
-    public opacity(alpha: number): void {
+    public opacity(alpha: number): Canvas {
         this.ctx.globalAlpha = clamp(alpha, 0, 1);
+        return this;
     }
 
-    public scale(x: number, y: number): void {
+    public scale(x: number, y: number): Canvas {
         this.ctx.scale(x, y);
+        return this;
     }
 
     public enableSmoothing(quality: ImageSmoothingQuality): void {

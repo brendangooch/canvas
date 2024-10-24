@@ -33,12 +33,13 @@ export default class CanvasFilter extends AbstractCanvasComponent {
         return this;
     }
 
+    // ** DISABLED ** as extremely slow on animations
     // px - any number / color - any valid css color
-    public dropShadow(x: number, y: number, blur: number, color: string): CanvasFilter {
-        this.filters.push(`drop-shadow(${x}px ${y}px ${blur}px ${color})`);
-        this.update();
-        return this;
-    }
+    // public dropShadow(x: number, y: number, blur: number, color: string = 'black'): CanvasFilter {
+    //     this.filters.push(`drop-shadow(${x}px ${y}px ${blur}px ${color})`);
+    //     this.update();
+    //     return this;
+    // }
 
     // number 0 -> 1
     public grayscale(n: number): CanvasFilter {
@@ -89,6 +90,7 @@ export default class CanvasFilter extends AbstractCanvasComponent {
     }
 
     public reset(): void {
+        this.filters.length = 0;
         this.ctx.filter = 'none';
     }
 
