@@ -1,0 +1,44 @@
+
+v2.0.0
+
+removed jest tests; tested all functionality manually in browser
+removed (currently) unused components from package
+ALL other HTMLCanvasElement functionality can be accessed still via public Canvas.ctx
+
+Canvas:
+simplified constructor
+removed superfluous methods that are not requried in most projects
+
+CanvasColor:
+removed gradient and pattern functionality
+just has fill() and stroke() methods now
+
+CanvasPath:
+removed non-zero alternatives
+just left fill, stroke and clip + basic shapes line, circle, rectangle, square
+
+CanvasFont:
+re-wrote entirely
+removed convenience methods that were clogging up the class
+still resets if client calls save(fn) method
+added method chaining and removed clunky setAll()
+
+CanvasText:
+removed convenience methods as cluttering class up
+removed maxWidth param from fill() and stroke() as not currently used
+added method chaining to ALL methods so can be called and chained together in any order
+removed clunky setAll() method
+
+CanvasImage:
+added sprite(sprite, width, height) method for convenient way to render an iSprite (from library)
+changed cell(...) method name to segment(...), which, I think, makes more sense
+
+CanvasFilter:
+removed constructor() as testing manually/visually
+removed clunky setAll(...) method
+still resets if client calls save(fn) method
+completely re-wrote with cleaner implementation and using clamp() function from Maths package
+added method chaining to each filter function method
+
+FULLY tested functionality visually in browser
+

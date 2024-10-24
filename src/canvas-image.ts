@@ -1,12 +1,13 @@
 /**
  * supports HTML images only at present
- * images are rendered from the center at the current translated position
+ * images are rendered from the center at the currently-translated position
  * 
  */
 
-import CanvasComponent from "./canvas-component.js";
+import { iSprite } from "@brendangooch/image-sprite";
+import AbstractCanvasComponent from "./abstract-canvas-component.js";
 
-export default class CanvasImage extends CanvasComponent {
+export default class CanvasImage extends AbstractCanvasComponent {
 
     // drawImage(image, dx, dy)
     public original(image: HTMLImageElement): void {
@@ -20,8 +21,12 @@ export default class CanvasImage extends CanvasComponent {
     }
 
     // drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-    public cell(image: HTMLImageElement, sx: number, sy: number, sWidth: number, sHeight: number, dWidth: number, dHeight: number): void {
+    public segment(image: HTMLImageElement, sx: number, sy: number, sWidth: number, sHeight: number, dWidth: number, dHeight: number): void {
         this.ctx.drawImage(image, sx, sy, sWidth, sHeight, -dWidth / 2, -dHeight / 2, dWidth, dHeight);
+    }
+
+    public sprite(sprite: iSprite, width: number, height: number): void {
+        this.segment(sprite.image, sprite.x, sprite.y, sprite.width, sprite.height, width, height);
     }
 
 }
