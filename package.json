@@ -1,6 +1,6 @@
 {
     "name": "@brendangooch/canvas",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "description": "a cleaner implementation of the HTML Canvas API",
     "author": "B Gooch <brendangooch@gmail.com>",
     "license": "MIT",

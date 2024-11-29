@@ -3,7 +3,7 @@
  */
 
 import AbstractCanvasComponent from "./abstract-canvas-component.js";
-import { tFontWeight } from "./index.js";
+import type { tFontWeight } from "./index.js";
 
 export default class CanvasFont extends AbstractCanvasComponent {
 
@@ -45,16 +45,19 @@ export default class CanvasFont extends AbstractCanvasComponent {
         return this;
     }
 
-    public kerning(value: CanvasFontKerning): void {
+    public kerning(value: CanvasFontKerning): CanvasFont {
         this.ctx.fontKerning = value;
+        return this;
     }
 
-    public stretch(value: CanvasFontStretch): void {
+    public stretch(value: CanvasFontStretch): CanvasFont {
         this.ctx.fontStretch = value;
+        return this;
     }
 
-    public variantCaps(value: CanvasFontVariantCaps): void {
+    public variantCaps(value: CanvasFontVariantCaps): CanvasFont {
         this.ctx.fontVariantCaps = value;
+        return this;
     }
 
     public reset(): void {

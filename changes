@@ -52,3 +52,27 @@ v2.1.0
         creates a nicer interface for clients to use - set all common canvas settings in one line
     
     FULLY tested new functionality visually in browser
+
+v3.0.0
+    Canvas class:
+        tidied up constructor by extracting private methods
+        moved components into single private components property
+        changed scale(n) method to accept 1 param instead of 2, scales x and y with same value
+        added scaleXY(x,y) to replace former scale() method so client can scale axis separately if required
+        canvas element now has width, height = 'inherit' and position = 'absolute' styles applied
+            this behaviour can be turned off by setting static Canvas.CONTAINED property to false
+    
+    AbstractCanvasComponent
+        components now accept ctx in an init() method, not constructor
+    
+    CanvasFont
+        stretch, kerning and variantCaps methods now return this for method chaining
+
+    CanvasLine
+        removed thickness()
+        added:
+            width(n)
+            dash(segments, offset)
+            cap(type)
+            join(type)
+            all return this so can be chained

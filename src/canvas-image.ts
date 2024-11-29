@@ -4,7 +4,7 @@
  * 
  */
 
-import { iSprite } from "@brendangooch/image-sprite";
+import type { iSprite } from "@brendangooch/image-sprite";
 import AbstractCanvasComponent from "./abstract-canvas-component.js";
 
 export default class CanvasImage extends AbstractCanvasComponent {
