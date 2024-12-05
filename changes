@@ -76,3 +76,7 @@ v3.0.0
             cap(type)
             join(type)
             all return this so can be chained
+
+v4.0.0
+    imported ImageSprite v4.0.0 with different interface
+    amended sprite() method in CanvasImage to reflect changes AND now only require an ImageSprite as param (ImageSprite is already scaled to correct size)
