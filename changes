@@ -80,3 +80,7 @@ v3.0.0
 v4.0.0
     imported ImageSprite v4.0.0 with different interface
     amended sprite() method in CanvasImage to reflect changes AND now only require an ImageSprite as param (ImageSprite is already scaled to correct size)
+
+v5.0.0
+    imported ImageSprite v5.0.0 with original interface
+    the previous implementation was wrong - client needs to specify the width and height of the sprite on each render

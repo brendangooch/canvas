@@ -25,8 +25,8 @@ export default class CanvasImage extends AbstractCanvasComponent {
         this.ctx.drawImage(image, sx, sy, sWidth, sHeight, -dWidth / 2, -dHeight / 2, dWidth, dHeight);
     }
 
-    public sprite(sprite: iSprite): void {
-        this.segment(sprite.image, sprite.sx, sprite.sy, sprite.swidth, sprite.sheight, sprite.dwidth, sprite.dheight);
+    public sprite(sprite: iSprite, width: number, height: number): void {
+        this.segment(sprite.image, sprite.sx, sprite.sy, sprite.swidth, sprite.sheight, width, height);
     }
 
 }

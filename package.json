@@ -1,6 +1,6 @@
 {
     "name": "@brendangooch/canvas",
-    "version": "4.0.0",
+    "version": "5.0.0",
     "description": "a cleaner implementation of the HTML Canvas API",
     "author": "B Gooch <brendangooch@gmail.com>",
     "license": "MIT",
@@ -41,7 +41,7 @@
         "canvas api"
     ],
     "dependencies": {
-        "@brendangooch/image-sprite": "^4.0.0",
+        "@brendangooch/image-sprite": "^5.0.0",
         "@brendangooch/maths": "^3.0.0"
     }
 }
