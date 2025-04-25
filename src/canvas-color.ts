@@ -14,4 +14,9 @@ export default class CanvasColor extends AbstractCanvasComponent {
         this.ctx.strokeStyle = color;
     }
 
+    public both(color: string): void {
+        this.fill(color);
+        this.stroke(color);
+    }
+
 }

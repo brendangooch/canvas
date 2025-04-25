@@ -112,6 +112,15 @@ export class Canvas {
         this.ctx.imageSmoothingEnabled = false;
     }
 
+    public download(filename: string, format: 'jpeg' | 'png' = 'png', quality: number = 1.0): void {
+        const dataUrl = this.canvas.toDataURL(`image/${format}`, quality);
+        const tmpLink = document.createElement('a');
+        tmpLink.href = dataUrl;
+        tmpLink.download = filename;
+        tmpLink.click();
+        tmpLink.remove();
+    }
+
     private loadCanvasElement(id: string): void {
         if (document.getElementById(id) === undefined) throw new Error(`no canvas element with id="${id} exists in your html file"`);
         this.canvas = <HTMLCanvasElement>document.getElementById(id);

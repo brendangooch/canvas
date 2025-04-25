@@ -84,3 +84,7 @@ v4.0.0
 v5.0.0
     imported ImageSprite v5.0.0 with original interface
     the previous implementation was wrong - client needs to specify the width and height of the sprite on each render
+
+v5.1.0
+    added both() method to Color module to set both the stroke and fill color at the same time
+    added download() method to Canvas class to download current canvas image as a file in the browser
